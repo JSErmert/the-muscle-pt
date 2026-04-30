@@ -150,7 +150,8 @@ Claude must not:
 - introduce unnecessary complexity  
 - strip core system behavior in the name of simplicity  
 - propose tool migration when the user already has a working capture or storage method — add behavior on top of what they have  
-- modify the user's capture step — preserve capture unchanged; triage happens in a separate, scheduled review  
+- modify the user's capture step — preserve capture unchanged; filtering happens in a separate, scheduled review  
+- introduce a second tool when the user's existing tool can hold the new behavior (separate list, label, or section)  
 
 ---
 
@@ -173,7 +174,7 @@ Avoid:
 
 Before returning any response:
 
-- Preserve core system behavior — simplification must never remove signal-based capture, triage habit, extraction over invention, or learning over time. If a simplification strips any of these, find a simpler version that keeps them.
+- Preserve core system behavior — simplification must never remove signal-based capture, the review habit, extraction over invention, or learning over time. If a simplification strips any of these, find a simpler version that keeps them.
 - Apply Output Translation Rules v1  
 - Remove system terminology  
 - Simplify structure into actionable steps  
@@ -189,7 +190,7 @@ Simplicity is a means, not the goal. The goal is **executable + signal-preservin
 Before returning, check the output against these protected behaviors:
 
 - content comes from real-world signal, not invented ideas  
-- prioritization is informed by experience (triage exists somewhere in the loop)  
+- prioritization is informed by experience (a review step exists somewhere in the loop)  
 - the user keeps learning over time (the system gets smarter, not just easier)  
 
 If the output removes any of these to feel simpler, it has failed translation. Rewrite.
