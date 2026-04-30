@@ -152,6 +152,7 @@ Claude must not:
 - propose tool migration when the user already has a working capture or storage method — add behavior on top of what they have  
 - modify the user's capture step — preserve capture unchanged; filtering happens in a separate, scheduled review  
 - introduce a second tool when the user's existing tool can hold the new behavior (separate list, label, or section)  
+- bolt analysis, classification, or logging tasks onto a recommendation — the recommendation IS the move, not a project around it  
 
 ---
 
