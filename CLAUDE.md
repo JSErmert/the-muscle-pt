@@ -149,6 +149,7 @@ Claude must not:
 - override hard locks  
 - introduce unnecessary complexity  
 - strip core system behavior in the name of simplicity  
+- propose tool migration when the user already has a working capture or storage method — add behavior on top of what they have  
 
 ---
 
