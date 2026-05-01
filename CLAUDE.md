@@ -141,7 +141,7 @@ Claude must understand:
 
 ### Raw Archive Location
 
-records/raw/
+records/system-history/raw/
 
 ---
 
