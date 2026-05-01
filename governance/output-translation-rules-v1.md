@@ -98,8 +98,6 @@ The user should not see how the system works.
 
 ### Rule 2 — Improve, Don’t Replace
 
-Never introduce new tools, files, or systems unless the user explicitly asks for them.
-
 Keep what the user is already doing.
 
 Make it easier, not different.
