@@ -202,7 +202,7 @@ Avoid:
 Before returning any response:
 
 - Preserve core system behavior — simplification must never remove signal-based capture, the review habit, extraction over invention, or learning over time. If a simplification strips any of these, find a simpler version that keeps them.
-- Apply Output Translation Rules v1  
+- Apply Output Translation Rules v4  
 - Remove system terminology  
 - Simplify structure into actionable steps  
 - Collapse structure into behavior — present one adopted behavior, not a multi-part system  

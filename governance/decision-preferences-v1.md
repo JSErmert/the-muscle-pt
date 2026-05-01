@@ -1,270 +1,173 @@
-# THE MUSCLE PT — MASTER OPERATING SYSTEM GOVERNANCE BRIDGE v1
+# THE MUSCLE PT — DECISION PREFERENCES v1
 
 ## Purpose
 
-This document defines how the **execution system (Master Operating System)** and the **governance system (rules layer + repo architecture)** interact.
+This file defines the default strategic preferences that guide decisions across the repository.
 
-It is the binding layer that ensures:
-- execution remains fast and practical
-- governance remains lightweight and effective
-- the repository evolves without fragmentation
-- all systems inherit consistent logic
+These are not hard locks.
+They are not strict commands.
 
-This file does not replace any system.
-
-It defines how all systems work together.
+They are directional biases that help the system choose the highest-leverage path without becoming rigid.
 
 ---
 
-## Core Definition
+## Core Rule
 
-```text
-Master Operating System = execution doctrine
-Governance Layer = decision control + system integrity
-Bridge = interaction + inheritance + escalation logic
+When no hard lock is violated, default to the option that:
+- reduces repeated effort
+- increases reusability
+- preserves mission alignment
+- strengthens the long-term system
 
-1. SYSTEM ROLES
-1.1 Master Operating System
+---
 
-Controls:
+## 1. CONTENT PREFERENCES
 
-content production workflow
-client workflow execution
-daily and weekly actions
-immediate decisions
+### DP-01 — Prefer Quality Over Frequency
+Default to fewer stronger posts rather than more low-intent posts.
 
-Purpose:
-Enable consistent output.
+Reason:
+High-quality output compounds trust and improves brand clarity more than volume.
 
-1.2 Governance Layer
+---
 
-Components:
+### DP-02 — Prefer Mission Alignment Over Novelty
+Default to content that reinforces the core mission rather than content that is merely interesting or trendy.
 
-hard-locks-v1.md
-decision-preferences-v1.md
-escalation-triggers-v1.md
+Reason:
+Mission-aligned repetition builds recognition and strategic consistency.
 
-Controls:
+---
 
-decision boundaries
-rule enforcement
-system stability
-structural evolution
+### DP-03 — Prefer Real Insight Over Invented Content
+Default to content extracted from real observations, real client patterns, real reflections, or real questions before inventing content from scratch.
 
-Purpose:
-Prevent regression and guide decisions.
+Reason:
+Reality produces stronger authority than brainstorming alone.
 
-1.3 Repository Architecture
+---
 
-Controls:
+### DP-04 — Prefer Reusable Formats Over Constant Reinvention
+Default to repeatable post structures, familiar visual systems, and stable storytelling patterns.
 
-storage structure
-artifact organization
-versioning
-system relationships
+Reason:
+Reusable formats reduce cognitive load and improve execution consistency.
 
-Purpose:
-Maintain long-term scalability and clarity.
+---
 
-2. INTERACTION MODEL
-2.1 Execution First Principle
-Execution should not wait for governance.
-The Master Operating System always runs first.
-Governance should not block execution unless a hard lock is triggered.
-2.2 Governance as Constraint, Not Controller
+## 2. CLIENT SYSTEM PREFERENCES
 
-Governance:
+### DP-05 — Prefer Simple Case Framing First
+Default to the simplest case type and most plausible root cause before introducing complex interpretations.
 
-shapes decisions
-prevents obvious waste
-guides direction
+Reason:
+Clear first-pass framing is more useful than overcomplicated analysis.
 
-Governance does NOT:
+---
 
-micromanage workflows
-add steps to execution
-introduce friction into simple actions
-2.3 Default Flow
-Execute → Observe → Reflect → Escalate (if needed)
-3. DECISION FLOW HIERARCHY
+### DP-06 — Prefer Progressive Clarity Over Premature Precision
+Default to a usable intervention path that can be refined over time rather than waiting for a perfect first answer.
 
-All decisions follow this order:
+Reason:
+Client progress improves through feedback, not through initial overdesign.
 
-1. Hard Locks
-2. Decision Preferences
-3. Execution Judgment
-4. Escalation (if repeated friction)
-3.1 Hard Locks
-Must not be violated
-Trigger immediate correction
-3.2 Decision Preferences
-Guide choices when multiple options exist
-Do not block action
-3.3 Execution Judgment
-Used when no rule or preference clearly applies
-Allows flexibility and speed
-3.4 Escalation
-Activated only when patterns repeat
-Promotes issues into rules or system changes
-4. ESCALATION PATH
-Observation
-→ Repetition
-→ Pattern
-→ Escalation Trigger
-→ Promotion (rule or system update)
-4.1 Escalation Levels
+---
 
-Level 1 — Log
-Level 2 — Preference
-Level 3 — Hard Lock
-Level 4 — System Revision
+### DP-07 — Prefer Pattern Recognition Over Isolated Events
+Default to repeated signals and trend-based interpretation over single-session noise.
 
-5. STRUCTURE GOVERNANCE
-5.1 Minimal Structure Principle
-Do not add structure unless repeated use demands it.
-5.2 File Creation Rule
+Reason:
+The system should become more stable as more evidence accumulates.
 
-A new file should only be created if:
+---
 
-the same type of information appears repeatedly
-retrieval becomes difficult
-multiple artifacts require separation
-5.3 Anti-Fragmentation Rule
+## 3. TOOL AND WORKFLOW PREFERENCES
 
-Do not split:
+### DP-08 — Prefer Stable Workflows Over Better-Looking Workflows
+Default to the workflow that is most repeatable and least mentally expensive, even if another option looks slightly more advanced.
 
-systems
-rules
-workflows
+Reason:
+Consistency outperforms novelty when output matters.
 
-into multiple files prematurely.
+---
 
-Prefer:
+### DP-09 — Prefer Fewer Tools Used Well
+Default to a smaller tool stack with clear purpose before introducing specialized tools.
 
-compression
-consolidation
-clarity
-6. SYSTEM INHERITANCE
+Reason:
+Tool discipline protects execution velocity.
 
-All systems must inherit:
+---
 
-From Master Operating System:
-workflow execution logic
-content standards
-client interaction patterns
-From Governance Layer:
-decision constraints
-rule hierarchy
-escalation logic
-From Repository Architecture:
-storage location
-versioning discipline
-relationship mapping
-7. CROSS-SYSTEM INTERACTION
-7.1 Content System
+### DP-10 — Prefer Manual Validation Before Automation
+Default to proving a workflow manually before trying to automate it.
 
-Input:
+Reason:
+Automation should encode working logic, not unresolved ambiguity.
 
-client insights
-patterns
-observations
+---
 
-Output:
+## 4. REPO AND SYSTEM DESIGN PREFERENCES
 
-posts
-scripts
-audience engagement
-7.2 Movement Case Engine
+### DP-11 — Prefer Compression Over Expansion
+Default to fewer files, fewer folders, and fewer artifact types until repeated usage demands more granularity.
 
-Input:
+Reason:
+A smaller structure is easier to trust, maintain, and actually use.
 
-client data
-session observations
+---
 
-Output:
+### DP-12 — Prefer System Reuse Over One-Off Solutions
+Default to solving recurring problems in ways that can be used again.
 
-structured cases
-intervention logic
-insights
-7.3 Feedback System
+Reason:
+The repository should accumulate leverage, not just store outputs.
 
-Input:
+---
 
-content performance
-client outcomes
+### DP-13 — Prefer Cross-System Leverage
+Default to choices that help multiple systems at once.
 
-Output:
+Examples:
+- client insights that fuel content
+- content decisions that reinforce clinic positioning
+- records that improve both execution and future tooling
 
-system refinement
-decision updates
-7.4 Unified Loop
-Client → Case → Insight → Content → Audience → Feedback → Refinement
-8. RULE PROMOTION LOGIC
+Reason:
+The highest-leverage move is often the one that compounds across domains.
 
-A rule should be promoted when:
+---
 
-a decision repeats more than once
-a mistake causes measurable cost
-a pattern appears across contexts
-8.1 Promotion Boundaries
+## 5. DECISION FILTER
 
-Do not promote:
+When choosing between options, ask:
 
-one-time mistakes
-personal preferences
-stylistic opinions
-9. EXECUTION PROTECTION
-9.1 Anti-Friction Principle
-If governance slows execution, governance must be simplified.
-9.2 Execution Priority
-Posting content
-Running sessions
-Producing output
+1. Which option reduces repeated thinking?
+2. Which option strengthens the system, not just the moment?
+3. Which option is easiest to repeat consistently?
+4. Which option stays closest to the mission?
+5. Which option creates reusable value later?
 
-These always take priority over:
+Default to the option that wins on most of those questions.
 
-reorganizing systems
-adding structure
-refining documentation
-10. SYSTEM EVOLUTION MODEL
-10.1 Growth Path
-Execution
-→ Pattern recognition
-→ Rule creation
-→ System refinement
-→ Architecture update
-10.2 Expansion Rule
+---
 
-Only expand the system when:
+## Preference Promotion Rule
 
-repetition is proven
-friction is consistent
-value of structure outweighs cost
-11. FAILURE MODES (TO AVOID)
-11.1 Over-Governance
-too many rules
-rigid constraints
-slowed execution
-11.2 Over-Structuring
-excessive folders
-unused files
-fragmented artifacts
-11.3 System Drift
-untracked changes
-conflicting guidance
-duplicated logic
-12. FINAL DEFINITION
+A decision preference should only become a hard lock when:
+- violating it causes repeated real cost
+- the cost is already observed
+- flexibility is no longer useful
 
-This bridge ensures:
+Until then, keep it as a preference.
 
-execution remains fast
-governance remains effective
-systems remain connected
-structure evolves only when needed
-SYSTEM SUMMARY
-Execute fast
-Constrain intelligently
-Escalate only when repeated
-Structure only when necessary
+---
 
-This is the governing logic of The Muscle PT system.
+## Final Definition
+
+Decision preferences are the system's bias layer.
+
+They do not force behavior.
+They shape it.
+
+Their purpose is to make the best move feel natural without making the system brittle.
