@@ -92,6 +92,28 @@ Use:
 
 ---
 
+### Business Decisions
+
+Use:
+- Governing Logic  
+- Decision Preferences  
+- Hard Locks  
+- Prioritization + Queue Engine  
+
+Focus:
+- pricing  
+- packaging  
+- hiring  
+- scaling  
+- partnerships / equity  
+
+Out of scope:
+- legal  
+- tax  
+- accounting  
+
+---
+
 ### Prioritization
 
 Use:
