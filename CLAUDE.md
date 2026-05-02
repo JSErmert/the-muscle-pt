@@ -48,8 +48,16 @@ Claude must recognize the core system:
 - Execution Playbook v1  
 - Movement Case Engine v1 (Core)  
 - Content Case Flywheel v1  
+- Content Output Contract v1  
 - Governing Logic v1  
 - Governance engines (rules, prioritization, evaluation)  
+
+Research layer (M2):
+
+- Research to System Mapping v1  
+- Research Layer Bootstrap v1  
+- Research Index & Traceability v1  
+- Research Query Layer v1  
 
 ---
 
@@ -71,7 +79,8 @@ Focus:
 ### Content Creation
 
 Use:
-Content Case Flywheel
+- Content Case Flywheel (when to produce)
+- Content Output Contract v1 (what to produce — voice, format, buckets, citations)
 
 Focus:
 - extract real insight  
@@ -224,6 +233,26 @@ Before returning, check the output against these protected behaviors:
 If the output removes any of these to feel simpler, it has failed translation. Rewrite.
 
 All responses must pass the execution filter before being returned.
+
+### Citation Format (M2)
+
+When research grounding is surfaced (when significantly informative or when explicitly requested), citations must follow this format:
+
+```text
+PMID: <number> | <link>
+<exact figure with units from the source>
+```
+
+Citations must:
+- be verified — never fabricated
+- include the exact figure from the study (effect size, percentage, duration, etc.) — not paraphrased numerics
+- include PMID when the source has one; source link in all cases
+
+For content production output, citations live in the caption above the three dots per `execution/content-output-contract-v1.md`.
+
+For clinical or business decisions, citations attach to the relevant claim inline.
+
+Default M1 outputs remain citation-free. M2 citations surface only when the system has mapped research that materially informs the answer or when the user explicitly asks for sources.
 
 ---
 

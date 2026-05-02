@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /c/Users/JSEer/the-muscle-pt status)",
+      "Bash(git -C /c/Users/JSEer/the-muscle-pt remote -v)",
+      "Bash(git -C /c/Users/JSEer/the-muscle-pt log -3 --oneline)",
+      "Bash(git -C /c/Users/JSEer/the-muscle-pt add CLAUDE.md)",
+      "Bash(git -C /c/Users/JSEer/the-muscle-pt commit -m ' *)",
+      "Bash(git *)",
+      "Bash(test -f \"C:\\\\Users\\\\JSEer\\\\the-muscle-pt/architecture/\"*movement*)",
+      "Bash(xargs grep *)",
+      "Bash(awk -F: '{print NR, $1}')"
+    ]
+  }
+}
