@@ -2,7 +2,7 @@
 
 Stores failures, breakdowns, and unexpected problems.
 
-Examples: failed interventions, system conflicts, major mistakes.
+Examples: failed interventions, system conflicts, major mistakes, translation failures.
 
 Meaning: high-value signals. Triggers for system correction.
 
