@@ -244,6 +244,37 @@ Together with decision-016 (Lane Abstraction), the lane + mode architecture is c
 
 ---
 
+## Amendment — 2026-05-03 (refinement-004)
+
+The 2026-05-03 fresh-chat test results surfaced an architectural confusion in the original Mode Activation table. Two failures traced to the same root:
+
+1. **Tests 1–6 (Clinical Mode, all six sessions):** Research Layer citations did not surface despite the Mode Activation table specifying "Clinical Mode | Movement Case Engine + Research Layer (for citations)." The fresh chat read "Research" as a sibling mode and treated Clinical Mode as research-disconnected.
+
+2. **Test 10 (Research Mode):** the fresh chat stopped at query draft instead of executing the full closed-loop authoring discipline that was applied manually for research-001 through 005 + 008.
+
+Both failures collapsed into one architectural correction, locked by `records/logs/refinements/refinement-004-research-layer-vs-authoring-mode-correction.md` (2026-05-03):
+
+- **Research Layer** is a passive always-on grounding service. Cited from any mode when significantly informative per CLAUDE.md §7. No mode declaration required.
+- **Research Authoring Mode** (alias: Research Mode) is the operator-invoked active discipline that executes the full 10-step closed loop with three operator-in-the-loop confirmation gates (seed selection, L3 mapping review, confidence/promotion review).
+
+### Corrections to the Mode Activation table (applied 2026-05-03)
+
+| Row | Original | Corrected (per refinement-004) |
+|---|---|---|
+| Clinical Mode | "Movement Case Engine + Research Layer (for citations)" | "Movement Case Engine (Research Layer grounds citations implicitly when significantly informative)" |
+| Research Mode | "Research Layer (Bootstrap, Index & Traceability, Query Layer, Research-to-System Mapping)" | "Research Authoring Mode *(alias: Research Mode)*" with activates column describing the full 10-step closed loop with 3 gates |
+
+A brief note above the table now distinguishes the always-on Research Layer from the explicit Research Authoring Mode. CLAUDE.md was updated 2026-05-03 to reflect both corrections.
+
+### What this preserves
+
+The original decision-017 commitment — six mode commands, default-inference behavior, mode-switching, mode-spanning rules — is unchanged. The amendment refines the doctrine inside two of the six mode rows; it does not undo decision-017.
+
+The **lane + mode architecture** (decision-016 + decision-017) remains complete. The amendment sharpens the operational surface to match how the modes are actually used in practice.
+
+---
+
 ## Last Updated
 
 2026-05-02 — initial decision authored. Mode Activation pattern locked as the operator interface to decision-016's lane abstraction. Six mode commands defined with aliases, default behavior, switching syntax, and mode-spanning rules. HL-09 / HL-10 gates evaluated and passed. Five follow-on tasks identified.
+2026-05-03 — amended via refinement-004 after fresh-chat test results surfaced layer-vs-mode confusion. Clinical Mode row corrected to remove explicit Research Layer reference (layer is now framed as implicit/always-on); Research Mode row renamed to Research Authoring Mode with full 10-step closed-loop description. CLAUDE.md updated to match.

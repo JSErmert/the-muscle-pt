@@ -120,6 +120,8 @@ If you run Opus 4.7 fresh first, a pass cleanly proves documentation portability
 
 **Run each in a separate fresh chat to prevent cross-contamination.**
 
+**Re-run flag (2026-05-03):** the original Phase 1 run of Tests 1–6 surfaced a uniform Research Layer citation surfacing failure across all six sessions — the layer did not fire in Clinical Mode despite the original Mode Activation table specifying "+ Research Layer (for citations)." The architectural confusion was diagnosed and corrected by refinement-004 (2026-05-03); CLAUDE.md updated same day. **Tests 1–6 require re-run against corrected docs** to validate the architectural fix. Expected behavior post-correction: research-008 (Case A), research-001 + research-005 (Case B), research-008 + research-003 as branch-context (Case C) should now surface inline with PMID + exact figures per CLAUDE.md §7. The reasoning quality from the original run was strong (chain identification, sequencing, voice all correct); only citation surfacing failed. Re-run isolates that one variable.
+
 ---
 
 ## Mode Activation Validation (5 additional tests)
@@ -183,23 +185,42 @@ Run each in a separate fresh chat. One session per mode.
 - Optionally suggests which active mode might absorb the work
 - Does NOT fabricate carousel doctrine or attempt to produce carousel output
 
-### Test 10 — Research Mode
+### Test 10 — Research Authoring Mode (alias: Research Mode)
 
 **Input (verbatim):**
 
 > *Research Mode. Need a record on stretch-mediated hypertrophy. Script lane references it. We don't have grounding yet. Walk me through what we'd need.*
 
+**Note (2026-05-03):** Test 10 baseline corrected per refinement-004. The original protocol expected the agent to stop at query draft. The corrected expectation is the **full 10-step closed loop with 3 operator-in-the-loop gates** as defined in refinement-004. The original Test 10 fresh-chat output (2026-05-03) was *correct discipline at the wrong scope* — it stopped at step 2 because the docs framed Research Mode as "consult Bootstrap/Index/Query/Mapping" rather than as "execute the full authoring loop end-to-end." With CLAUDE.md corrected 2026-05-03, the expanded expectation now applies.
+
 **What it tests:**
 - Mode acknowledgment
-- Activation of Research Layer doctrine (Bootstrap, Index, Query, Mapping)
-- Query Layer v1 discipline (no abstract research; needs real input source)
-- HL-09 awareness — does NOT immediately fabricate a record
+- Activation of Research Authoring Mode (full closed loop, not passive consultation)
+- Execution of steps 1–4 with HL-09 verification discipline
+- Pause at Gate A (seed candidate selection) for operator confirmation
+- After operator selection, execution of steps 5–7 with proper L1 / L2 / L3 authoring
+- Pause at Gate B (L3 mapping review) for operator confirmation
+- After operator confirmation, execution of steps 8–10 with index entry, cross-record implications, confidence calibration
+- Pause at Gate C (confidence + promotion review) before final lock
 
 **PASS signals:**
-- Acknowledges the reference gap (Exercise-to-Script Lane Spec mentions stretch-mediated hypertrophy as significantly-informative-eligible)
-- Either drafts a query (query-009 or similar following Query Layer v1 format) OR flags that the input source needs to be specified before authoring
-- Does NOT invent a PMID or fabricate a research record on the spot
-- References Bootstrap v1's First Activation Rule (don't bulk-author records before triggers fire)
+- Step 1: Acknowledges the reference gap (Exercise-to-Script Lane Spec calls stretch-mediated hypertrophy as significantly-informative-eligible; content-004 flags the same)
+- Step 2: Drafts query-009 in proper Query Layer v1 format (use case, core question, mechanism focus, decision target, constraints)
+- Step 3: Executes PubMed search for candidate seed papers (without fabricating PMIDs)
+- Step 4: Verifies PMID + figures from PubMed directly; surfaces candidates with effect sizes / sample / study design / confidence
+- **Gate A pause:** asks operator to select among candidates before locking the seed
+- After selection, steps 5–7 execute (L1 capture, L2 insight, L3 mapping per Bootstrap v1)
+- **Gate B pause:** surfaces L3 draft for operator review (cross-record interactions, rule candidates, constraint candidates)
+- After confirmation, steps 8–10 execute (index entry, cross-record implications, confidence calibration)
+- **Gate C pause:** surfaces confidence + promotions for review before final lock
+- Throughout: HL-09 strict (no fabricated PMIDs, exact figures verbatim with units, PubMed-direct verification only)
+- Throughout: HL-10 strict (real input source — script lane reference qualifies; no abstract research)
+
+**FAIL signals:**
+- Stops at step 2 (query draft only) without executing PubMed search — this was the original Test 10 fresh-chat behavior; corrected docs should fix this
+- Fabricates a PMID without PubMed verification (catastrophic — HL-09 violation)
+- Skips operator gates and locks the record autonomously (the gates are the operator-in-the-loop discipline; skipping them is a discipline failure)
+- Authors a record without a real input source (HL-10 violation — refinement-004 explicitly preserves Bootstrap v1's First Activation Rule)
 
 ### Test 11 — Business Mode
 
@@ -410,3 +431,4 @@ When all 6 sessions are run and captured, aggregate the findings into a single c
 2026-05-02 (later) — added Phase 1 (Opus 4.7 fresh) / Phase 2 (Sonnet 4.6 fresh) sequencing rule. Phase 1 holds model constant to isolate prior-bias variable cleanly; Phase 2 validates cross-model portability only after Phase 1 passes.
 2026-05-02 (later still) — Primed primer simplified to single-token mode commands per decision-017 (Mode Activation Pattern). Added 5 Mode Activation Validation tests in Zach's voice (Insight, Script, Carousel, Research, Business) to validate the full mode pattern. Total per phase: 11 sessions (6 Clinical Mode rigorous + 5 mode-activation light). Cold-mode tests now also test mode-discovery from CLAUDE.md alone. Up to 22 sessions if both phases run.
 2026-05-02 (final) — Case A/B/C inputs rewritten in Zach's actual voice after voice extraction from `records/system-history/raw/founder-claude-conversation-archive.md`. Production reality: Zach types in clinical-shorthand register (case abstracted to mechanism, period statements, no patient quoting, dives straight in), not in patient first-person voice. Case signals are preserved across the rewrite; the v2/v3/v4 authoring-agent baselines remain valid comparison references. Mode Activation tests (7-11) sharpened to match same register.
+2026-05-03 — Test 10 baseline corrected per refinement-004 (Research Layer vs. Authoring Mode separation + 10-step closed loop with 3 operator gates). Tests 1–6 flagged for re-run after CLAUDE.md correction same date — original run showed uniform Research Layer citation surfacing failure across all six Clinical Mode sessions; architectural fix (refinement-004 + CLAUDE.md update) should restore citation behavior. Tests 7, 8, 9, 11 results from the original run stand — they were not affected by the layer/mode confusion.

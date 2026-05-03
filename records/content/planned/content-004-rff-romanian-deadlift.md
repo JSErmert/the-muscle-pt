@@ -50,7 +50,9 @@ The Romanian Deadlift is item #6 of the 32-exercise priority list (lower body �
 
 ### 4. Biomechanics and Resistance Profile (10–15 sec)
 
-> "This is a descending resistance profile movement. The mechanical demand on the hamstrings is greatest at the bottom — when the muscle is most lengthened and the moment arm at the hip is greatest. This is exactly where stretch mediated hypertrophy lives."
+> "This is a descending resistance profile movement. The mechanical demand on the hamstrings is greatest at the bottom — when the muscle is most lengthened and the moment arm at the hip is greatest. This is the lengthened position. The modest stretch-mediated hypertrophy effect concentrates here."
+
+**Note (2026-05-03):** softened from prior language *"This is exactly where stretch mediated hypertrophy lives"* per research-009 lock at Gate C (refinement-004 first formal Research Authoring Mode execution). Original language was overclaim relative to the evidence (Varovic 2025 PMID 40570881 SMDs 0.05–0.09; Wolf 2025 BFs 0.16–0.3 supporting null). Locked replacement is the operator-confirmed micro-refined two-sentence form.
 
 ### 5. Execution and Cues (15–20 sec)
 
@@ -243,3 +245,4 @@ content-004 passes all 8 lane-specific criteria with one provisional caveat (fou
 ## Last Updated
 
 2026-05-02 — initial structurally complete draft authored. Banks Input 4 of the 5 INPUT COMMANDS (4 of 5 reachable now). First content piece in Exercise-to-Script Lane. Lane spec v1 exercised end-to-end. Only remaining caveat: founder ear-test on criterion #1 (consistent across all four content pieces). Optional v2 enhancement: explicit "common mistakes to avoid" enumeration in Section 5.
+2026-05-03 — Section 4 (Biomechanics) softened per research-009 lock. Prior language *"This is exactly where stretch mediated hypertrophy lives"* was overclaim per Varovic 2025 meta-analysis SMDs 0.05–0.09 + Wolf 2025 BFs 0.16–0.3 supporting null. Locked replacement: *"This is the lengthened position. The modest stretch-mediated hypertrophy effect concentrates here."* Triggered by refinement-004's first formal Research Authoring Mode execution (closed loop with 3 operator gates).

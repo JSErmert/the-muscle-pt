@@ -215,7 +215,7 @@ This example was provided in the founder's source prompt and is preserved verbat
 > "The hamstrings are biarticular — they cross both the knee and the hip. The Romanian deadlift loads them through hip flexion with the knees relatively fixed. The biceps femoris long head, semitendinosus, and semimembranosus all elongate as your hips travel back. The glutes act as the primary hip extensor on the way up. Erector spinae and multifidus isometrically brace the spine throughout."
 
 ### Biomechanics
-> "This is a descending resistance profile movement. The mechanical demand on the hamstrings is greatest at the bottom — when the muscle is most lengthened and the moment arm at the hip is greatest. This is exactly where stretch mediated hypertrophy lives."
+> "This is a descending resistance profile movement. The mechanical demand on the hamstrings is greatest at the bottom — when the muscle is most lengthened and the moment arm at the hip is greatest. This is the lengthened position. The modest stretch-mediated hypertrophy effect concentrates here."
 
 ### Execution and Cues
 > "Set up with a hip-width stance. Grip the bar slightly outside your legs. Exhale and stack — ribcage over pelvis, neutral spine. Push your hips back as you lower the bar — knees stay relatively fixed. Feel the stretch in your hamstrings. Drive your hips forward to return to standing. Two cues — push the floor away with your hips, not your back. And keep the bar pulled into your body the entire descent."
@@ -358,6 +358,16 @@ For Exercise-to-Script Lane:
 - **Prescription numbers (50% / 80% / 6–12 reps / 0–2 RIR):** treated as Zach's clinical/experiential heuristic. Loosely aligned with hypertrophy + minimum-effective-dose literature but not per-piece-cited. Marked here in the spec as heuristic for traceability; not surfaced per piece.
 
 This is **lighter-grounding than the Insight Lane**, consistent with the lane's purpose (teaching the movement, not surfacing the literature).
+
+### Canonical Sources for Lane Biomechanics Claims
+
+When a biomechanics claim is elevated under Exception 1, the canonical source must come from a grounded research record. Currently grounded biomechanics claims:
+
+| Claim | Canonical source | Surfacing format (when elevated) |
+|---|---|---|
+| Stretch-mediated hypertrophy / lengthened-position effects | research-009 (Varovic 2025, PMID 40570881) | `PMID: 40570881 \| https://pubmed.ncbi.nlm.nih.gov/40570881/` followed by exact figure: `SMD 0.09 distal regional hypertrophy advantage [95% QI: −0.01, 0.19] in resistance-trained young adults; effect is modest and most pronounced at the distal portion of the muscle.` |
+
+Future biomechanics claims requiring elevation should be grounded by authoring a record via Research Authoring Mode (refinement-004, 10-step closed loop with 3 operator gates) before citation surfaces in lane content.
 
 ---
 

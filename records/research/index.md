@@ -12,7 +12,8 @@ Validation rules:
 - Each entry is usable in content generation
 - Each entry is traceable to original research
 
-Last updated: 2026-05-01 (**research-008 added — Spanhove 2023, RCT n=21 hEDS/HSD shoulder instability, Medium confidence; horizontal modifier across other records; M2 closeout-triggered authoring**; M2 closeout document authored; research-005 added — García-Juez 2025, NMA, High confidence; research-002 confidence promoted Low-Medium → Medium-High; research-004 added; research-007 flagged planned; research-003 added; research-002 added; research-001 Fact-or-Fiction L3 corrected per incident-002; query-001 extended to v5; query-006 + query-008 logged; research-006 flagged planned)
+Last updated: 2026-05-03 (**research-009 added — Varovic 2025, Bayesian meta-analysis 12 studies, Medium-High confidence; vertical record (mechanism layer) for Exercise-to-Script Lane biomechanics grounding; first formal execution of corrected Research Authoring Mode per refinement-004**; lane spec language softened — "this is exactly where stretch mediated hypertrophy lives" → "This is the lengthened position. The modest stretch-mediated hypertrophy effect concentrates here.")
+Previous: 2026-05-01 (**research-008 added — Spanhove 2023, RCT n=21 hEDS/HSD shoulder instability, Medium confidence; horizontal modifier across other records; M2 closeout-triggered authoring**; M2 closeout document authored; research-005 added — García-Juez 2025, NMA, High confidence; research-002 confidence promoted Low-Medium → Medium-High; research-004 added; research-007 flagged planned; research-003 added; research-002 added; research-001 Fact-or-Fiction L3 corrected per incident-002; query-001 extended to v5; query-006 + query-008 logged; research-006 flagged planned)
 
 ---
 
@@ -520,6 +521,102 @@ Supplementary context (not seed grounding):
 #### Last Updated
 
 2026-05-01
+
+---
+
+### research-009 — Stretch-Mediated Hypertrophy Regional Effects (Vertical, Mechanism Layer)
+
+#### Topic
+
+Whether resistance training emphasizing the lengthened/stretched muscle position produces greater regional hypertrophy than training at shorter muscle lengths or full ROM. **Vertical record (mechanism layer)** — does NOT modify other records' interventions; grounds a specific biomechanics claim referenced by the Exercise-to-Script Lane Spec and content-004 (RDL).
+
+The honest finding: the effect is real but modest (SMDs 0.05–0.09 in meta-analysis), most pronounced at the distal portion of the muscle, and not the dominant hypertrophy driver. Volume, intensity, frequency, and proximity to failure remain the primary drivers.
+
+#### Use Cases
+
+- query-009 — Cross-lane reference gap (system-driven, not case-driven). Exercise-to-Script Lane Spec v1 and content-004 both reference "stretch-mediated hypertrophy" as significantly-informative-eligible without grounded record. **First formal execution of corrected Research Authoring Mode** per refinement-004 (2026-05-03).
+
+#### System Mappings
+
+##### Case Engine Mapping
+
+Vertical mechanism-layer record. Indirect Case Engine touchpoints only:
+- Rehab-to-strength transition (Clinical → Programming): full ROM is the default; lengthened partials are a substitute pathway when full ROM is contraindicated by tissue irritability, joint geometry, or post-rehab status
+- Hypermobile populations (research-008 cross-reference): research-008 horizontal modifier overrides — lengthened-position emphasis contraindicated until stability is restored
+
+##### Decision Mapping
+
+When selecting between exercise variants for hypertrophy programming, full ROM is the default. Lengthened partials are a valid alternative, not a superior tool. Where strength outcomes matter alongside hypertrophy, full ROM is favored (Havers 2025: fROM 28.01% vs pROM 21.59% 1RM).
+
+##### Rule Candidates
+
+- RC-22. Programming for hypertrophy in healthy non-hypermobile trainees → default to full ROM; lengthened partials are substitute pathway, not superior tool
+- RC-23. Citation surfacing for small-effect findings (SMD < 0.20) → frame as modest with verbatim figure; never affirmative overclaim
+
+Promotion path: ≥ 2 validated firings without contradiction → formal rule.
+
+##### Constraint Candidates
+
+- CC-33. Stretch-mediated hypertrophy effect sizes are small (SMDs 0.05–0.09 in meta-analysis); citation surfacing must state SMD verbatim and disclose practical-equivalence finding
+- CC-34. Lane spec language softened 2026-05-03 — "This is the lengthened position. The modest stretch-mediated hypertrophy effect concentrates here." replaces "This is exactly where stretch mediated hypertrophy lives" in the RDL worked example
+- CC-35. Hypermobility override — research-008 horizontal modifier wins over research-009 in hypermobile cases (lengthened-position emphasis contraindicated until stability is restored)
+- CC-36. Varovic 2025 limitation: average difference between "shorter" and "longer" condition muscle lengths in primary studies was only ~21.8% — meta-analysis cannot speak to extreme separations
+
+#### Content Mappings
+
+- Educational (Bucket 1): "Why ROM matters in your training" — modest effect framing, full ROM as default
+- Fact or Fiction (Bucket 3): "Stretching the lengthened position is the secret to muscle growth" → **MOSTLY FICTION** (effect is real but small; Varovic SMDs 0.05–0.09; Wolf Bayes factors 0.16–0.3 supporting null. Volume and intensity dominate.)
+- Exercise-to-Script Lane (YouTube descriptions only): canonical surfacing format with PMID 40570881 + SMD 0.09 distal advantage figure verbatim
+- Exercise-to-Script Lane reel scripts: NO citation surfaced by default — effect too modest to qualify as significantly informative under CLAUDE.md §7 for the audio reel format
+
+#### Source References
+
+- PMID: 40570881
+- Link: https://pubmed.ncbi.nlm.nih.gov/40570881/
+- Title: Does Muscle Length Influence Regional Hypertrophy? A Systematic Review and Meta-Analysis
+- Authors: Varovic D, Wolf M, Schoenfeld BJ, Steele J, Grgic J, Mikulic P
+- Journal: International Journal of Sports Medicine, December 2025
+- Verification: PubMed direct (not Google AI)
+
+Exact figures (from PubMed direct):
+- Proximal (25%): SMD 0.05 [95% QI: −0.07, 0.16]; lnRR 0.57%
+- Mid-belly (50%): SMD 0.07 [95% QI: −0.02, 0.15]; lnRR 1.22%
+- Distal (75%): SMD 0.09 [95% QI: −0.01, 0.19]; lnRR 1.88%
+- Sample: 12 studies of young adults
+- Posterior distributions fell within regions of practical equivalence at high frequency
+- Limitation: average condition separation only ~21.8% muscle length difference
+
+Supplementary context (not seed grounding):
+- PMID 39959841 — Wolf et al. 2025, PeerJ. Within-participant RCT, n=30 trained individuals, 8 weeks. Bayes factors 0.16–0.3 supporting null hypothesis of equal LP vs full ROM hypertrophy.
+- PMID 41247250 — Havers et al. 2025, European Journal of Sport Science. Within-subject RCT, n=13 trained, 8-week preacher curls. pROM initial vs fROM at 70% humeral length: SMD 0.10, BF 4.87 (moderate evidence for H1); 7.60% pROM vs 4.38% fROM thickness gain. fROM favored for 1RM (28.01% vs 21.59%).
+
+#### Confidence Level
+
+**Medium-High.** Strong evidence design (Bayesian meta-analysis, 12 studies) with convergent supporting evidence (Wolf RCT, Havers RCT). Effect sizes are small (SMD 0.05–0.10) — confidence does not exceed Medium-High because the effect is modest, not because the evidence is weak.
+
+Promotion to High requires:
+1. A second independent meta-analysis or NMA reports SMDs ≥ 0.20 at any region
+2. A large RCT (n > 100) demonstrates practical (not statistical) significance
+3. Mechanism studies establish dose-response with extreme condition separation translating to clinically meaningful effect
+
+Demotion to Medium would require evidence reversal — meta-analyses showing no effect at all regions.
+
+#### Lane Spec Implications (cross-record action triggered)
+
+Three downstream edits triggered post-Gate C confirmation:
+1. `execution/exercise-to-script-lane-spec-v1.md` RDL worked example Section 4: "This is exactly where stretch mediated hypertrophy lives" → "This is the lengthened position. The modest stretch-mediated hypertrophy effect concentrates here."
+2. `execution/exercise-to-script-lane-spec-v1.md` Citation Discipline section: add explicit reference to research-009 as canonical source for stretch-mediated hypertrophy citations in YouTube descriptions
+3. `records/content/planned/content-004-rff-romanian-deadlift.md` Section 4 (Biomechanics): same softening as lane spec
+
+#### File Locations
+
+- Captured: `records/research/captured/research-009-stretch-mediated-hypertrophy-regional-effects.md`
+- Mapped: `records/research/mapped/research-009-stretch-mediated-hypertrophy-regional-effects.md`
+- Query: `records/research/queries/query-009-stretch-mediated-hypertrophy.md`
+
+#### Last Updated
+
+2026-05-03 — first formal execution of corrected Research Authoring Mode (refinement-004); locked at Gate C pending operator confirmation; lane spec + content-004 edits triggered post-Gate C.
 
 ---
 

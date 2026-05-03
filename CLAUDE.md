@@ -71,13 +71,15 @@ Each role/lane below is activated via its corresponding **mode command**. See `r
 
 Operator declares the mode in plain language. System locks to that mode's doctrine, voice register, citation discipline, and output structure until the operator switches.
 
+**Research Layer is always-on across all modes.** It grounds other modes' outputs with citations when significantly informative per §7. No mode declaration is required to access it. **Research Authoring Mode** is a distinct active discipline for *adding records to the layer* — see refinement-004.
+
 | Mode command | Activates |
 |---|---|
-| **Clinical Mode** | Movement Case Engine + Research Layer (for citations) |
+| **Clinical Mode** | Movement Case Engine (Research Layer grounds citations implicitly when significantly informative) |
 | **Insight Mode** | Content Output Contract v1 (5 buckets, master framework) |
 | **Script Mode** *(alias: Exercise-to-Script Mode)* | Exercise-to-Script Lane Spec v1 + Shared Assets v1 |
 | **Carousel Mode** | Replies: "deferred — no active doctrine. Use Insight Mode or Script Mode for now." |
-| **Research Mode** | Research Layer (Bootstrap, Index & Traceability, Query Layer, Research-to-System Mapping) |
+| **Research Authoring Mode** *(alias: Research Mode)* | Full closed-loop authoring of new research records: gap → query → PubMed search → PMID + figure verification → L1 capture → L2 insight → L3 mapping → index → cross-record implications → confidence calibration. Three operator-in-the-loop gates: seed selection, L3 mapping review, confidence/promotion review. See refinement-004 for the 10 steps. |
 | **Business Mode** *(alias: Decision Mode)* | Governing Logic + Hard Locks + Prioritization + Queue Engine |
 
 Defaults:
