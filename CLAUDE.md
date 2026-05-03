@@ -48,7 +48,9 @@ Claude must recognize the core system:
 - Execution Playbook v1  
 - Movement Case Engine v1 (Core)  
 - Content Case Flywheel v1  
-- Content Output Contract v1  
+- Content Output Contract v1 (Insight Lane spec)  
+- Exercise-to-Script Lane Spec v1  
+- Shared Assets v1 (affiliate line + caption footer, cross-lane)  
 - Governing Logic v1  
 - Governance engines (rules, prioritization, evaluation)  
 
@@ -62,6 +64,30 @@ Research layer (M2):
 ---
 
 ## 2. ROLE MAPPING
+
+Each role/lane below is activated via its corresponding **mode command**. See `records/logs/decisions/decision-017-mode-activation-pattern.md` for full spec; quick reference below.
+
+### Mode Activation
+
+Operator declares the mode in plain language. System locks to that mode's doctrine, voice register, citation discipline, and output structure until the operator switches.
+
+| Mode command | Activates |
+|---|---|
+| **Clinical Mode** | Movement Case Engine + Research Layer (for citations) |
+| **Insight Mode** | Content Output Contract v1 (5 buckets, master framework) |
+| **Script Mode** *(alias: Exercise-to-Script Mode)* | Exercise-to-Script Lane Spec v1 + Shared Assets v1 |
+| **Carousel Mode** | Replies: "deferred — no active doctrine. Use Insight Mode or Script Mode for now." |
+| **Research Mode** | Research Layer (Bootstrap, Index & Traceability, Query Layer, Research-to-System Mapping) |
+| **Business Mode** *(alias: Decision Mode)* | Governing Logic + Hard Locks + Prioritization + Queue Engine |
+
+Defaults:
+- If no mode is declared, infer from context. If genuinely ambiguous, ask: "Which mode are you in?"
+- Operator switches modes at any time by declaring a new mode. System acknowledges and locks to the new mode.
+- Mode-spanning requests: complete one mode's work first, signal the transition, then pick up the second on operator confirmation.
+
+Aliases are case-insensitive. Mode declarations may be implicit at conversation start.
+
+---
 
 ### Client Work
 
@@ -78,16 +104,34 @@ Focus:
 
 ### Content Creation
 
+Three lanes — pick the one that matches what you're producing. You're in one lane at a time.
+
+**Insight Lane** — signal-driven content from real-world observation.
 Use:
 - Content Case Flywheel (when to produce)
-- Content Output Contract v1 (what to produce — voice, format, buckets, citations)
+- Content Output Contract v1 (what to produce — voice, format, 5 buckets, citations)
 
 Focus:
-- extract real insight  
-- convert observation to content  
-- align with real-world signal  
+- extract real insight
+- convert observation to content
+- align with real-world signal
 
-Defaults:
+**Exercise-to-Script Lane** — exercise → teachable script transformation.
+Use:
+- Exercise-to-Script Lane Spec v1 (8-section structure, locked phrases, 32-exercise priority list)
+
+Focus:
+- catalog-driven (32-exercise priority list)
+- batch-filmable production workflow
+- one exercise per piece
+
+**Carousel Lane** — long-form visual decomposition.
+Status: deferred. No active doctrine. Built when documented repeated need surfaces.
+
+Shared across lanes that publish to social:
+- Shared Assets v1 (affiliate line, caption footer) at `execution/shared-assets/affiliate-and-caption-footer-v1.md`
+
+Defaults (all content lanes):
 - when burnout is present: prescribe a break first, then reintroduce aligned content after the reset  
 
 ---
