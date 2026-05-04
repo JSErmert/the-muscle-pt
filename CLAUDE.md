@@ -71,16 +71,15 @@ Each role/lane below is activated via its corresponding **mode command**. See `r
 
 Operator declares the mode in plain language. System locks to that mode's doctrine, voice register, citation discipline, and output structure until the operator switches.
 
-**Research Layer is always-on across all modes.** It grounds other modes' outputs with citations when significantly informative per §7. No mode declaration is required to access it. **Research Authoring Mode** is a distinct active discipline for *adding records to the layer* — see refinement-004.
+**Research Layer is always-on across all modes.** It grounds other modes' outputs with citations when significantly informative per §7. No mode declaration is required to access it. **Research Authoring** is a system-triggered capability — see Research Authoring Prompt subsection below — not a mode the operator declares in daily use.
 
 | Mode command | Activates |
 |---|---|
-| **Clinical Mode** | Movement Case Engine (Research Layer grounds citations implicitly when significantly informative) |
-| **Insight Mode** | Content Output Contract v1 (5 buckets, master framework) |
-| **Script Mode** *(alias: Exercise-to-Script Mode)* | Exercise-to-Script Lane Spec v1 + Shared Assets v1 |
+| **Clinical Mode** | Movement Case Engine. Research Layer auto-grounds citations when significantly informative; Research Authoring prompts when grounding gap surfaces. |
+| **Insight Mode** | Content Output Contract v1 (5 buckets, master framework). Research Layer auto-grounds; Research Authoring prompts when gap surfaces. |
+| **Script Mode** *(alias: Exercise-to-Script Mode)* | Exercise-to-Script Lane Spec v1 + Shared Assets v1. Research Layer auto-grounds; Research Authoring prompts when gap surfaces. |
 | **Carousel Mode** | Replies: "deferred — no active doctrine. Use Insight Mode or Script Mode for now." |
-| **Research Authoring Mode** *(alias: Research Mode)* | Full closed-loop authoring of new research records: gap → query → PubMed search → PMID + figure verification → L1 capture → L2 insight → L3 mapping → index → cross-record implications → confidence calibration. Three operator-in-the-loop gates: seed selection, L3 mapping review, confidence/promotion review. See refinement-004 for the 10 steps. |
-| **Business Mode** *(alias: Decision Mode)* | Governing Logic + Hard Locks + Prioritization + Queue Engine |
+| **Business Mode** *(alias: Decision Mode)* | Governing Logic + Hard Locks + Prioritization + Queue Engine. Research Layer auto-grounds; Research Authoring prompts when gap surfaces. |
 
 Defaults:
 - If no mode is declared, infer from context. If genuinely ambiguous, ask: "Which mode are you in?"
@@ -88,6 +87,26 @@ Defaults:
 - Mode-spanning requests: complete one mode's work first, signal the transition, then pick up the second on operator confirmation.
 
 Aliases are case-insensitive. Mode declarations may be implicit at conversation start.
+
+### Research Authoring Prompt (system-triggered, never auto-fires)
+
+When the active mode encounters a claim that needs grounding AND no existing record covers it adequately AND the operator hasn't declined this gap in the current session, the system prompts:
+
+> *"Want to ground this with a research record? Closed loop runs in 10 steps with 3 operator gates."*
+
+- **Operator confirms** → 10-step closed loop fires inline within the active mode (gap → query → PubMed search → PMID + figure verification → L1 capture → L2 insight → L3 mapping → index → cross-record implications → confidence calibration). Three operator gates pause for confirmation: seed selection (Gate A), L3 mapping review (Gate B), confidence calibration (Gate C). Once locked, the new record propagates to all future modes via the Research Layer.
+- **Operator declines** → active mode continues. Ungrounded claim is disclosed per HL-09 (e.g., *"I'm not grounding that piece from what I have right now"*).
+- **System never auto-fires the closed loop.** Operator authorization is required at every gate.
+
+Trigger conditions narrow: prompt fires only when the claim is significantly informative under §7 (materially shapes the recommendation, not common-knowledge anatomy or locked-phrase convention) AND no adequate record exists AND operator hasn't declined this gap this session.
+
+See `records/logs/refinements/refinement-005-research-authoring-as-system-triggered-capability.md` for full spec.
+
+### Power-User Reference — Explicit Research Mode invocation
+
+For **proactive** authoring (adding a record before any gap surfaces during active mode work), the explicit **"Research Mode"** command is preserved. Same 10-step closed loop with 3 operator gates fires. This is the pattern Josh used to author research-001 through 008 + 009 during M2 acceleration. Not part of the daily-use operator surface.
+
+See `records/logs/decisions/decision-017-mode-activation-pattern.md` (and its amendments) and `records/logs/refinements/refinement-004-research-layer-vs-authoring-mode-correction.md` for the closed-loop discipline.
 
 ---
 

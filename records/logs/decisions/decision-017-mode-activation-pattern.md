@@ -274,7 +274,42 @@ The **lane + mode architecture** (decision-016 + decision-017) remains complete.
 
 ---
 
+## Amendment — 2026-05-04 (refinement-005)
+
+The 2026-05-04 operator architectural review during Zach handoff preparation surfaced a **usability problem in the operator-facing mode surface**. Even after refinement-004 corrected the Research Layer / Authoring Mode separation, the daily-use mode surface still had 6 modes — 1 deferred (Carousel) and 1 rarely-needed for daily-use operators (Research Authoring). For Zach's handoff, that meant 2 of 6 modes were not for him.
+
+Additionally, Research Authoring is genuinely **cross-mode** — gaps that need authoring surface from inside other modes (research-009 was triggered by a Script Lane reference, not by Clinical case work). Embedding Research Authoring solely in Clinical Mode (one operator's first instinct) would have lost the cross-mode reality.
+
+Refinement-005 (`records/logs/refinements/refinement-005-research-authoring-as-system-triggered-capability.md`, 2026-05-04) resolved this with a second architectural correction:
+
+- **Research Authoring is promoted from a primary mode to a system-triggered capability.** When the active mode encounters a grounding gap, the system prompts the operator: *"Want to ground this with a research record?"* Operator confirms → 10-step closed loop fires inline within the active mode. Operator declines → active mode continues with HL-09 disclosed ungrounded claim. Never auto-fires; operator authorization required at every gate.
+- **Trigger conditions are narrow:** prompt fires only when the claim is significantly informative under §7 AND no adequate record exists AND operator hasn't declined this gap this session.
+- **Explicit *"Research Mode"* command is preserved** as a power-user invocation for proactive authoring (Josh used this pattern to author research-001 through 008 + 009 during M2 acceleration). Lives in a power-user reference, not in Zach's daily mode list.
+
+### Corrections to the Mode Activation table (applied 2026-05-04)
+
+| Row | After refinement-004 (2026-05-03) | After refinement-005 (2026-05-04) |
+|---|---|---|
+| Research Authoring Mode (alias: Research Mode) | Primary mode row with full 10-step closed-loop activation | **Removed from primary mode table.** Promoted to "Research Authoring Prompt" subsection (system-triggered) + "Power-User Reference" subsection (explicit proactive invocation preserved). |
+
+The other mode rows (Clinical, Insight, Script, Business) had their activates column updated to note "Research Authoring prompts when gap surfaces" inline, replacing the implicit assumption that grounding gaps would self-resolve.
+
+### What this preserves (second time)
+
+The 10-step closed loop and 3 operator gates from refinement-004 are **unchanged**. What changes is the **activation pattern** — from "operator declares Research Mode" to "system prompts when gaps surface; operator authorizes; closed loop fires inline." The discipline is the same; the entry point is cleaner.
+
+The original decision-017 commitment to lane + mode architecture remains complete. Refinement-005 is operator-facing surface simplification, not capability removal. Cross-mode grounding still works. Proactive authoring still works.
+
+### What this changes for Zach's handoff
+
+The operator-facing brief Zach receives now lists **4 working modes + 1 deferred** (Clinical, Insight, Script, Business + Carousel deferred). Plus a brief note that the system will prompt to ground new claims when gaps surface.
+
+This is the surface Zach should see in the handoff package.
+
+---
+
 ## Last Updated
 
 2026-05-02 — initial decision authored. Mode Activation pattern locked as the operator interface to decision-016's lane abstraction. Six mode commands defined with aliases, default behavior, switching syntax, and mode-spanning rules. HL-09 / HL-10 gates evaluated and passed. Five follow-on tasks identified.
 2026-05-03 — amended via refinement-004 after fresh-chat test results surfaced layer-vs-mode confusion. Clinical Mode row corrected to remove explicit Research Layer reference (layer is now framed as implicit/always-on); Research Mode row renamed to Research Authoring Mode with full 10-step closed-loop description. CLAUDE.md updated to match.
+2026-05-04 — amended a second time via refinement-005 after operator architectural review during Zach handoff prep. Research Authoring promoted from primary mode to system-triggered capability + preserved as power-user explicit invocation. Mode Activation table reduced to 5 modes + 1 deferred. CLAUDE.md updated to match. The 10-step closed loop and 3 operator gates from refinement-004 remain unchanged — what changes is the activation pattern, not the discipline.
