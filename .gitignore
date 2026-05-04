@@ -1,2 +1,7 @@
 # Local Claude Code config — user-specific, not project-wide
 .claude/
+
+# Founder-Claude conversation archive — too large for Claude.ai project context (~470k tokens)
+# Preserved at git tag: archive/system-history-2026-05-04
+# Restore via: git checkout archive/system-history-2026-05-04 -- records/system-history/raw/founder-claude-conversation-archive.md
+records/system-history/raw/founder-claude-conversation-archive.md

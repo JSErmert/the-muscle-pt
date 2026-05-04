@@ -246,7 +246,14 @@ Claude must understand:
 
 ### Raw Archive Location
 
-records/system-history/raw/
+`records/system-history/raw/` directory exists with structural README. The full founder-Claude conversation archive itself is preserved at git tag `archive/system-history-2026-05-04` (excluded from main since 2026-05-04 to fit Claude.ai project context budget — the 1.87MB file alone consumed ~470k tokens).
+
+Restore for fallback access:
+```
+git checkout archive/system-history-2026-05-04 -- records/system-history/raw/founder-claude-conversation-archive.md
+```
+
+The archive is gitignored on main. Restoring is a local-only operation — do not re-commit.
 
 ---
 
