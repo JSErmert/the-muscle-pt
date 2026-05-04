@@ -21,6 +21,7 @@ Default behavior:
 - No alternatives
 - No tool comparisons
 - No follow-up questions unless absolutely required
+- **No internal system identifiers in artifact output.** If your draft response contains HL-X, research-XXX, refinement-XXX, decision-XXX, §X, or system component / engine / doctrine layer names anywhere in artifact output (protocol templates, content, client deliverables, including handoff lines), **the response is invalid. Do not return it.** Rewrite with internal identifiers translated to operator-readable language. See §7 Internal-Identifier Translation Pass for WRONG/CORRECT examples.
 
 If unsure, simplify further.
 
@@ -331,23 +332,51 @@ Before returning any response:
 
 ### Internal-Identifier Translation Pass
 
-Before returning any artifact output, scan for these patterns and translate to the principle they encode:
+**If your draft response contains any of these patterns in artifact output, the response is invalid. Do not return it. Rewrite from scratch with internal identifiers translated to operator-readable language.**
+
+Patterns that invalidate artifact output:
 
 - **HL-X** (HL-01 through HL-10+) → translate to the principle (e.g., *"HL-05"* → *"reassess before advancing load, range, or complexity"*)
 - **research-XXX** → translate to the source (e.g., *"research-010"* → *"the ACSM 2026 Position Stand"* or *"PMID 41843416"*)
 - **refinement-XXX**, **decision-XXX** → translate to the principle or omit
 - **§X** (CLAUDE.md section references) → translate to the principle
-- **System component / engine / doctrine layer names** (Movement Case Engine, Output Translation Rules, etc.) → translate to the action
+- **System component / engine / doctrine layer names** (Movement Case Engine, Output Translation Rules, Decision Layer, Content Output Contract, etc.) → translate to the action
 
-**If any internal-identifier pattern appears in artifact output (opening, mid-output, closing line, section headers, handoff lines), the response is incorrect and must be rewritten before return.**
+Artifact output covers: protocol templates, content, client deliverables, AND the handoff line that transitions out of the closed loop into artifact build.
 
-Closed-loop gate output (Gate A/B/C of Research Authoring) is the only exception — operators legitimately need internal IDs when making doctrine-aware decisions at gates. The translation pass applies to artifact output (protocol templates, content, client deliverables) **and the handoff line that transitions out of the closed loop into artifact build.**
+#### WRONG vs. CORRECT — canonical examples
 
-Handoff line example:
-- Wrong: *"Switching to Clinical Mode. Movement Case Engine active. Building the protocol now, grounded to research-010."*
-- Correct: *"Building the protocol now, grounded to the ACSM 2026 Position Stand."*
+These are the verbatim Pre-Alpha-4/5 leaks. Match these patterns when scanning your draft.
 
-See `records/logs/refinements/refinement-010-internal-identifier-translation-enforcement.md` for full spec.
+**WRONG:** *"HL-05 applies: reassess before advancing — if technique degrades, hold load"*
+**CORRECT:** *"Reassess before advancing — if technique degrades, hold load"*
+
+**WRONG:** *"HL-05 reassessment markers per block transition:"*
+**CORRECT:** *"Reassessment markers per block transition:"*
+
+**WRONG:** *"Switching to Clinical Mode. Movement Case Engine active. Building the protocol now, grounded to research-010."*
+**CORRECT:** *"Building the protocol now, grounded to the ACSM 2026 Position Stand."*
+
+**WRONG:** *"Per §7 Output Translation, the response is incorrect."*
+**CORRECT:** *"The response is incorrect."*
+
+#### Closed-loop gate exception — two-tier model
+
+Closed-loop gate output (Gate A / Gate B / Gate C of Research Authoring) is the doctrine-aware decision space. Some internal identifiers are legitimately needed there; others should still translate.
+
+**Allowed at gates** (operators legitimately confirm these):
+- Specific record identifiers being confirmed: *research-XXX*, *PMID-X*
+- Hard-lock identifiers when operator is confirming a specific compliance decision: *HL-X*
+- Gate naming: *Gate A / Gate B / Gate C* (low semantic load — operators learn quickly)
+
+**Translate at gates** (abstract architecture terminology — unfamiliar without doctrine onboarding):
+- Layer names: *L1 / L2 / L3* — e.g., *"Gate B — L3 system mapping"* becomes *"Gate B — How this record applies to your work"*
+- Engine names: *Case Engine* → *"Clinical practice"*; *Movement Case Engine* → *"Clinical practice engine"*
+- Architecture names: *Decision Layer* → *"Decision-making"*
+- Contract names: *Content Output Contract* → *"Content production rules"*
+- Lane names: *Insight Lane / Script Lane / Exercise-to-Script Lane* → *"Insight content"* / *"Exercise scripts"* / etc.
+
+See `records/logs/refinements/refinement-011-action-override-translation-with-refusal-framing.md` for full spec, `records/logs/refinements/refinement-010-internal-identifier-translation-enforcement.md` and `records/logs/refinements/refinement-009-internal-identifier-leakage-in-artifact-output.md` for prior layers of this discipline.
 
 ### Translation Guardrail
 

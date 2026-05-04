@@ -321,17 +321,72 @@ Filed as Pre-Alpha-4. One direct authorization promoted to doctrine via refineme
 
 ---
 
+## Pre-Alpha-5 — Analysis (2026-05-04)
+
+**Source:** `records/research/validation/2026-05-04-pre-alpha-5-seed-usage observation.md`
+**Window:** Single fresh-chat session, Josh Max account, doctrine-fidelity test cadence. Same template-builder + 12-week periodization input as Pre-Alpha-4. Closed loop fired through 3 gates → mode handoff → protocol artifact built. No session-limit hit.
+**Repo state during the observed session:** CLAUDE.md updated through commit `cc99c0b` (refinements 004–010 active including refinement-010's §7 Internal-Identifier Translation Pass enforcement subsection, Pre-Alpha-1 through Pre-Alpha-4 entries filed). Refinement-011 was authored *after* this session in response to the doctrine-not-landing failure surfaced in it.
+
+### Critical finding: refinement-010 did not land
+
+Pre-Alpha-5 is a fresh run with refinement-010's §7 enforcement active. It produced **identical output to Pre-Alpha-4** — same operator inputs, same closed-loop responses, same protocol output, same 5 internal-identifier leaks:
+
+- Handoff line: *"Switching to Clinical Mode. Movement Case Engine active. Building the protocol now, grounded to research-010."* (3 leaks)
+- Block 2 description: *"HL-05 applies: reassess before advancing — if technique degrades, hold load"* (1 leak)
+- Section header: *"HL-05 reassessment markers per block transition:"* (1 leak)
+
+Refinement-010's §7 enforcement subsection ("scan-and-translate before return") was active in CLAUDE.md and did not prevent recurrence under fresh execution. **This is doctrine-not-landing despite explicit declaration AND enforcement framing.**
+
+### Pattern observations
+
+1. **Refinement-010 failure under fresh execution.** Same input + same repo state + new chat → identical leaks. The §7 enforcement subsection did not change behavior. Three possible causes (in order of likelihood): §7 placement too late in CLAUDE.md (Action Override + Hard Override + §6 OUTPUT STYLE are far more attended); principle-language framing still too soft (transformation not refusal); model instruction-following ceiling at this level of doctrine specificity.
+
+2. **L3 / abstract architecture terminology in Gate B output.** Operator (Josh) noticed *"Gate B — L3 system mapping"* and other internal terminology (Case Engine, Decision Layer, Content Output Contract, lane names) within closed-loop gate output. These are doctrine-exempted under refinement-010's closed-loop exception, but unfamiliar to a production operator without doctrine onboarding. **The exception is too broad.** Refinement-011 tightens it to a two-tier model (specific identifiers allowed; abstract architecture terminology translates).
+
+3. **Refinement-007 + refinement-008 + tool-failure fallback all consistently held.** Same gate flow, same multi-source verification, same recommendation-closes-the-call discipline as Pre-Alpha-3 and Pre-Alpha-4. These refinements have now been observed three times without violation. Doctrine-landing reliable for these.
+
+4. **Operator mode-spanning declaration as preferred entry pattern — third consistent observation.** *"first research and then clinical"* — operator continues to use mode-spanning declaration as default entry. Three sessions, three observations.
+
+5. **Mode-pick picker pattern — fourth consistent observation.** *"Which mode?"* surfaced as picker. Pattern is now reliably established. Doctrine-ambiguous between system behavior and Claude.ai web UI affordance.
+
+6. **§6 Iterative Refinement still not exercised under iteration pressure.** Pre-Alpha-5 ran one artifact print, no iteration arc.
+
+### Highest-leverage observations to watch for repetition
+
+- **Pre-Alpha-6 will determine whether refinement-011 lands or whether doctrine has hit a model ceiling.** This is the dominant watch-item. Refinement-011 combines four elements: Action Override placement (most-attended doctrine section), refusal framing replacing transformation framing, concrete WRONG/CORRECT examples with verbatim Pre-Alpha-4/5 leaks, closed-loop exception tightened to two-tier model. If Pre-Alpha-6 fresh run still leaks, the production response shifts to operator-side review (Zach reads artifact for jargon before client delivery), accepting that doctrine has a ceiling and stopping further identifier-translation refinements.
+- **Mode-pick picker pattern (4 consistent observations now).** No longer ambiguous in terms of pattern reliability — only ambiguous in root cause (system vs. UI). May warrant explicit doctrine acknowledgment that this is platform-rendered and acceptable.
+- **§6 Iterative Refinement under iteration pressure.** Still unexercised. Worth deliberately testing in Pre-Alpha-N+ via an iteration arc.
+
+### Direct operator authorizations (immediately doctrine-eligible)
+
+1. **Strongest single doctrine attempt before accepting model ceiling.** Verbatim from operator after seeing Pre-Alpha-5's identical leaks: *"proceed please so this is fixed."* Combined with the operator's prior framing *"there is still plenty of internal jargon... we dont want internal leakage that cant be understood by a PT."* **Promoted 2026-05-04** to refinement-011 with four-element bundle: Action Override placement + refusal framing + concrete examples + closed-loop exception tightening.
+
+2. **L3 / abstract architecture terminology should translate even within closed-loop gates.** Verbatim observation from operator: *"it says L3 - mapping gateway which is the only thing i noticed."* **Promoted** to refinement-011's two-tier closed-loop exception model (specific identifiers allowed at gates; abstract architecture terminology translates).
+
+### Disposition
+
+Filed as Pre-Alpha-5. Two direct authorizations promoted to doctrine via refinement-011 (Action Override placement, refusal framing, WRONG/CORRECT examples, two-tier closed-loop exception). Pre-Alpha-6 result determines next move — if leaks persist despite refinement-011, accept model ceiling and shift to operator-side review.
+
+**Net signal from Pre-Alpha-5:**
+
+- **Refinements 007, 008, tool-failure fallback** all held under fresh execution. Three observations each — doctrine-landing reliable.
+- **Refinement-010 failed under fresh execution.** Same input → same leaks. Doctrine-not-landing despite enforcement framing.
+- **Refinement-011 authored as strongest single attempt.** Four-element bundle. If Pre-Alpha-6 still leaks, model ceiling acknowledged and operator-side review becomes the production response.
+- **Loop discipline lesson:** doctrine has limits. Adding more text past a point produces diminishing returns. The honest operator observation loop must include "what doctrine cannot fix" as a documented category, not just "what new doctrine prevents."
+
+---
+
 ## Future entries
 
 Each subsequent observation appends a section here:
 
-- `## Pre-Alpha-5 — Analysis (YYYY-MM-DD)`
 - `## Pre-Alpha-6 — Analysis (YYYY-MM-DD)`
+- `## Pre-Alpha-7 — Analysis (YYYY-MM-DD)`
 - ...
 
 Each entry follows the same structure: source pointer, window, repo state, pattern observations, watch items, direct operator authorizations, disposition.
 
-When patterns repeat across entries, doctrine updates surface in the next refinement cycle (same mechanism as refinement-001 through refinement-010).
+When patterns repeat across entries, doctrine updates surface in the next refinement cycle (same mechanism as refinement-001 through refinement-011).
 
 ---
 
@@ -341,3 +396,4 @@ When patterns repeat across entries, doctrine updates surface in the next refine
 2026-05-04 (later) — Pre-Alpha-2 analysis filed (14 pattern observations + 7 watch items + 2 direct operator authorizations evaluated). One authorization promoted to refinement-008 + CLAUDE.md §2 rule 3 + decision-017 fifth amendment ("recommendation closes every gate"); one meta-learning lesson promoted to loop discipline ("pattern claims must be specific about what repeated, not summary counts"). Net signal: refinements 004–007 + §6 Iterative Refinement landed in production cleanly. Refinement-008 emerged as new finding requiring rule 3 sharpening. Pre-session context-budget overflow and Claude.ai 90% session-limit observed as platform constraints separate from doctrine.
 2026-05-04 (still later) — Pre-Alpha-3 analysis filed (16 pattern observations + 6 watch items + 1 direct operator authorization evaluated). Doctrine-fidelity test in Josh Max account; budget-realism test type formally distinguished. One authorization promoted to refinement-009 + CLAUDE.md §5 sharpening (internal-identifier leakage prohibition with closed-loop gate exception). Net signal: refinement-008 fully landed in production verbatim across all 3 gates; the canonical Pre-Alpha-2 working-set FAIL surface did not appear; refinement-007 strengthened with tool-failure fallback discipline. Refinement-009 emerged from HL-05 leak (real hard lock, §5 violation in form not substance). Operator observation loop now demonstrably functional: two iterations (Pre-Alpha-2 → refinement-008; Pre-Alpha-3 → refinement-009) showing observation → analysis → doctrine refinement → next-chat behavior change.
 2026-05-04 (latest) — Pre-Alpha-4 analysis filed (16 pattern observations + 7 watch items + 1 direct operator authorization evaluated). Doctrine-fidelity test in Josh Max account with 12-week periodization added to the operator's input. One authorization promoted to refinement-010 + CLAUDE.md §7 OUTPUT TRANSLATION enforcement subsection (Internal-Identifier Translation Pass with pre-return scan-and-translate step + handoff line scope). Net signal: refinements 007 + 008 repetition-confirmed; tool-failure fallback discipline repetition-confirmed. Refinement-009 regressed under increased artifact complexity (1 leak in Pre-Alpha-3 → 5 leaks in Pre-Alpha-4). Refinement-010 elevates declaration-layer constraint to enforcement-layer doctrine. Three loop iterations now demonstrate doctrine evolution: Pre-Alpha-2 → refinement-008 (menus); Pre-Alpha-3 → refinement-009 (identifier-leak declaration); Pre-Alpha-4 → refinement-010 (identifier-leak enforcement). Loop is the doctrine-evolution engine — each iteration sharpens; each next iteration tests the sharpening. Meta-learning lesson recorded: declaration-layer doctrine doesn't scale with artifact complexity; fix is enforcement-layer, not stricter declaration.
+2026-05-04 (latest²) — Pre-Alpha-5 analysis filed (6 pattern observations + 3 watch items + 2 direct operator authorizations evaluated). Doctrine-fidelity test, fresh run identical to Pre-Alpha-4 input. Two authorizations promoted to refinement-011 four-element bundle: (a) Action Override placement of identifier-translation refusal rule, (b) refusal framing replacing transformation framing in §7, (c) concrete WRONG/CORRECT examples with verbatim Pre-Alpha-4/5 leaks documented in §7, (d) closed-loop exception tightened to two-tier model (specific identifiers allowed; abstract architecture terminology translates). Net signal: refinements 007 + 008 + tool-failure fallback held under fresh execution (third consistent observation). Refinement-010 FAILED under fresh execution — identical 5 leaks recurred. Doctrine has either a placement / framing problem or a model instruction-following ceiling. Refinement-011 is the strongest single doctrine attempt before accepting the ceiling. Pre-Alpha-6 result determines next move. Loop discipline lesson: doctrine has limits; the honest operator observation loop must include "what doctrine cannot fix" as a category alongside "what new doctrine prevents."
