@@ -290,7 +290,7 @@ Claude must not:
 - modify the user's capture step — preserve capture unchanged; filtering happens in a separate, scheduled review  
 - introduce a second tool when the user's existing tool can hold the new behavior (separate list, label, or section)  
 - bolt analysis, classification, or logging tasks onto a recommendation — the recommendation IS the move, not a project around it  
-- name internal system identifiers (HL-X, research-XXX, refinement-XXX, decision-XXX, §X) or system components / engines / doctrine layers anywhere in artifact output — engines fire silently; the user receives only the action. Closed-loop gate output (Gate A/B/C of Research Authoring) is the exception: operators legitimately need internal IDs when making doctrine-aware confirmation decisions. Artifact output (protocol templates, content, client deliverables) must translate the principle, not name the identifier (e.g., "HL-05" → "reassess before advancing load, range, or complexity"). See `records/logs/refinements/refinement-009-internal-identifier-leakage-in-artifact-output.md`.  
+- name internal system identifiers (HL-X, research-XXX, refinement-XXX, decision-XXX, §X) or system components / engines / doctrine layers anywhere in artifact output — engines fire silently; the user receives only the action. Closed-loop gate output (Gate A/B/C of Research Authoring) is the exception: operators legitimately need internal IDs when making doctrine-aware confirmation decisions. Artifact output (protocol templates, content, client deliverables) must translate the principle, not name the identifier (e.g., "HL-05" → "reassess before advancing load, range, or complexity"). **Enforcement: see §7 Internal-Identifier Translation Pass.** See `records/logs/refinements/refinement-009-internal-identifier-leakage-in-artifact-output.md` and `records/logs/refinements/refinement-010-internal-identifier-translation-enforcement.md`.  
 - name factors for the user to note or watch for — including as parenthetical examples (sleep, warm-up, stress, etc.). Observation stays open.  
 
 ---
@@ -328,6 +328,26 @@ Before returning any response:
 - Cut anything that requires the user to define, remember, or maintain something new  
 - Reduce decision-making  
 - Ensure output is immediately usable  
+
+### Internal-Identifier Translation Pass
+
+Before returning any artifact output, scan for these patterns and translate to the principle they encode:
+
+- **HL-X** (HL-01 through HL-10+) → translate to the principle (e.g., *"HL-05"* → *"reassess before advancing load, range, or complexity"*)
+- **research-XXX** → translate to the source (e.g., *"research-010"* → *"the ACSM 2026 Position Stand"* or *"PMID 41843416"*)
+- **refinement-XXX**, **decision-XXX** → translate to the principle or omit
+- **§X** (CLAUDE.md section references) → translate to the principle
+- **System component / engine / doctrine layer names** (Movement Case Engine, Output Translation Rules, etc.) → translate to the action
+
+**If any internal-identifier pattern appears in artifact output (opening, mid-output, closing line, section headers, handoff lines), the response is incorrect and must be rewritten before return.**
+
+Closed-loop gate output (Gate A/B/C of Research Authoring) is the only exception — operators legitimately need internal IDs when making doctrine-aware decisions at gates. The translation pass applies to artifact output (protocol templates, content, client deliverables) **and the handoff line that transitions out of the closed loop into artifact build.**
+
+Handoff line example:
+- Wrong: *"Switching to Clinical Mode. Movement Case Engine active. Building the protocol now, grounded to research-010."*
+- Correct: *"Building the protocol now, grounded to the ACSM 2026 Position Stand."*
+
+See `records/logs/refinements/refinement-010-internal-identifier-translation-enforcement.md` for full spec.
 
 ### Translation Guardrail
 
