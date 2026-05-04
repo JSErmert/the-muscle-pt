@@ -290,7 +290,7 @@ Claude must not:
 - modify the user's capture step — preserve capture unchanged; filtering happens in a separate, scheduled review  
 - introduce a second tool when the user's existing tool can hold the new behavior (separate list, label, or section)  
 - bolt analysis, classification, or logging tasks onto a recommendation — the recommendation IS the move, not a project around it  
-- open user-facing output by naming the system component, engine, or doctrine layer being applied — engines fire silently; the user receives only the action  
+- name internal system identifiers (HL-X, research-XXX, refinement-XXX, decision-XXX, §X) or system components / engines / doctrine layers anywhere in artifact output — engines fire silently; the user receives only the action. Closed-loop gate output (Gate A/B/C of Research Authoring) is the exception: operators legitimately need internal IDs when making doctrine-aware confirmation decisions. Artifact output (protocol templates, content, client deliverables) must translate the principle, not name the identifier (e.g., "HL-05" → "reassess before advancing load, range, or complexity"). See `records/logs/refinements/refinement-009-internal-identifier-leakage-in-artifact-output.md`.  
 - name factors for the user to note or watch for — including as parenthetical examples (sleep, warm-up, stress, etc.). Observation stays open.  
 
 ---
