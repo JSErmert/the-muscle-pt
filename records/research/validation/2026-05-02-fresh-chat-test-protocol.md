@@ -244,10 +244,29 @@ In addition to substance scoring above, Test 10-A also scores **delivery rhythm*
 
 **Documented bloated example:** the 2026-05-04 fresh-chat ACSM 2026 closed-loop test response — listed 4 ACSM publication candidates without recommending one, asked two Gate A questions, narrated step numbers, included unprompted fabrication warning. **Never produce this pattern.** This response is now the canonical FAIL example for delivery rubric.
 
-**Aggregate scoring:**
-- Substance PASS + Delivery PASS = full PASS
-- Substance PASS + Delivery FAIL = PARTIAL (closed loop fired correctly but with bloated UX) — refinement signal
-- Substance FAIL = FAIL regardless of delivery
+### Turn-Flow Scoring (refinement-007, added 2026-05-04)
+
+Test 10-A also scores **first-turn sequencing** per refinement-007's four turn-flow rules. Turn flow scores independently from substance and delivery — a closed loop can fire correctly with tight rhythm but still violate turn flow if Gate A surfaces before the search executes.
+
+**Turn-flow PASS signals:**
+- Search executes before Gate A — single silent chain from mode declaration through verification
+- Gate A presents a verified candidate (PMID + exact figure verbatim attached)
+- One operator turn → one Gate A turn — no intervening pre-search confirmations
+- No mid-flow corrections (no "important correction" walking back a pre-search guess)
+
+**Turn-flow FAIL signals:**
+- Gate A asks the operator to confirm a candidate before any search has run
+- Pre-search clarification questions when the search itself could have been drafted from the operator's input
+- Mid-flow correction surfaced after the actual search produces a different source than the pre-search guess
+- Gate A surfaces without a PMID and exact figure attached (reliable wrong-path indicator — search has not run)
+
+**Documented bloated turn-flow example:** the 2026-05-04 second fresh-chat ACSM 2026 closed-loop test — asked "You mean ACSM Guidelines for Exercise Testing and Prescription, 12th ed (2025)?" before searching. Operator confirmed. Search then executed. System issued "Important correction" — actual source is ACSM 2026 Position Stand, not the Guidelines. **Never produce this pattern.** This response is now the canonical FAIL example for turn-flow rubric.
+
+**Aggregate scoring (substance + delivery + turn flow):**
+- Substance PASS + Delivery PASS + Turn-flow PASS = full PASS
+- Any one dimension FAIL with the others PASS = PARTIAL (closed loop fired but with one rubric violation) — refinement signal
+- Substance FAIL = FAIL regardless of delivery or turn flow
+- Multiple dimension FAILs = FAIL with multiple refinement signals
 
 ### Test 11 — Business Mode
 
@@ -460,3 +479,4 @@ When all 6 sessions are run and captured, aggregate the findings into a single c
 2026-05-02 (final) — Case A/B/C inputs rewritten in Zach's actual voice after voice extraction from `records/system-history/raw/founder-claude-conversation-archive.md`. Production reality: Zach types in clinical-shorthand register (case abstracted to mechanism, period statements, no patient quoting, dives straight in), not in patient first-person voice. Case signals are preserved across the rewrite; the v2/v3/v4 authoring-agent baselines remain valid comparison references. Mode Activation tests (7-11) sharpened to match same register.
 2026-05-03 — Test 10 baseline corrected per refinement-004 (Research Layer vs. Authoring Mode separation + 10-step closed loop with 3 operator gates). Tests 1–6 flagged for re-run after CLAUDE.md correction same date — original run showed uniform Research Layer citation surfacing failure across all six Clinical Mode sessions; architectural fix (refinement-004 + CLAUDE.md update) should restore citation behavior. Tests 7, 8, 9, 11 results from the original run stand — they were not affected by the layer/mode confusion.
 2026-05-04 — Test 10 scoring rubric extended per refinement-006 conversational discipline. Substance and delivery score independently. Documented bloated example: the 2026-05-04 ACSM 2026 closed-loop test response (multi-paragraph exposition, 4 unranked candidates, two Gate A questions, narrated step numbers, unprompted fabrication warning). That response is now the canonical FAIL example for delivery rubric.
+2026-05-04 (later) — Test 10 scoring rubric extended a second time per refinement-007 turn-flow discipline. Substance, delivery, and turn flow now score independently across three dimensions. Documented bloated turn-flow example: the second 2026-05-04 ACSM 2026 closed-loop test response surfaced Gate A before search ("You mean Guidelines 12th ed?"), operator confirmed, search then ran, system issued mid-flow "important correction" to ACSM 2026 Position Stand. That response is now the canonical FAIL example for turn-flow rubric. Aggregate scoring updated to require PASS on all three dimensions for full PASS.

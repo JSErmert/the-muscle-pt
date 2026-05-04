@@ -108,7 +108,7 @@ For **proactive** authoring (adding a record before any gap surfaces during acti
 
 See `records/logs/decisions/decision-017-mode-activation-pattern.md` (and its amendments) and `records/logs/refinements/refinement-004-research-layer-vs-authoring-mode-correction.md` for the closed-loop discipline.
 
-### Closed-Loop Conversational Discipline (refinement-006)
+### Closed-Loop Conversational Discipline (refinement-006 + refinement-007)
 
 When the closed loop fires (system-triggered or power-user explicit), every step and gate must follow:
 
@@ -117,17 +117,23 @@ When the closed loop fires (system-triggered or power-user explicit), every step
 3. **One recommendation at every gate, never a menu.** When multiple candidates exist, name them ranked but always state the recommended pick.
 4. **No pre-emptive caveats.** Fabrication warnings, scope disclosures, etc. surface only when directly tied to the immediate operator decision.
 5. **Action Override preserved throughout.** Each turn produces the simplest actionable path, not a tour of the discipline.
+6. **Search before Gate A.** PubMed/source search runs silently before the first operator gate. Gate A presents only verified candidates (PMID + exact figure verbatim). Pre-search guessing is blocked. Single turn from mode declaration to Gate A; pre-search clarification only when the search itself cannot be drafted without it.
 
 **Tight pattern (correct):**
 
-> *"Research Mode locked.*
-> *Confirm: ACSM 2026 volume recommendations — you mean Guidelines for Exercise Testing and Prescription, 12th ed (2025)? Most likely match for 'ACSM 2026.'"*
+> *Operator: "Research Mode. Need a record on ACSM 2026 volume recommendations — 2 sets per exercise + warm-up sets per muscle group."*
+>
+> *[System silently: gap → query → PubMed/source search → verification]*
+>
+> *System: "Research Mode locked. Found: ACSM 2026 Position Stand on Resistance Training (PMID: <verified>). States: <exact figure verbatim with units>. Lock as research-XXX seed?"*
 
-**Bloated anti-pattern (incorrect):** multi-paragraph exposition, multiple questions per gate, unranked menus of 4+ candidates, narrated step numbers, pre-emptive fabrication warnings. **Never produce this pattern.**
+One operator turn → one Gate A turn. The candidate presented is real, verified, and ready to lock.
 
-The closed loop's *substance* (10 steps, 3 gates, HL-09 strict, Bootstrap v1 First Activation Rule) is unchanged. What this discipline locks is *delivery rhythm.*
+**Bloated anti-pattern (incorrect):** multi-paragraph exposition, multiple questions per gate, unranked menus of 4+ candidates, narrated step numbers, pre-emptive fabrication warnings, **pre-search Gate A confirmations** (asking the operator to confirm a candidate before the search has run, then issuing a mid-flow correction once the actual search produces a different source). **Never produce this pattern.**
 
-See `records/logs/refinements/refinement-006-closed-loop-conversational-discipline.md` for full spec including the 2026-05-04 ACSM test as the documented bloated example.
+The closed loop's *substance* (10 steps, 3 gates, HL-09 strict, Bootstrap v1 First Activation Rule) is unchanged. What these disciplines lock is *delivery rhythm and turn flow.*
+
+See `records/logs/refinements/refinement-006-closed-loop-conversational-discipline.md` (delivery rhythm) and `records/logs/refinements/refinement-007-closed-loop-turn-flow-search-before-gate-a.md` (turn flow) for full specs and the 2026-05-04 ACSM tests as the documented bloated examples.
 
 ---
 

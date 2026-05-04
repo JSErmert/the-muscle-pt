@@ -334,9 +334,40 @@ What refinement-006 locks is **delivery rhythm** — how each step is presented 
 
 ---
 
+## Amendment — 2026-05-04 (refinement-007)
+
+A second 2026-05-04 fresh-chat test of Research Mode (power-user explicit invocation, ACSM 2026 volume recommendations) fired the closed loop with correct substance (refinement-004) and correct delivery rhythm (refinement-006), but exposed a third architectural confusion: **Gate A surfaced before the PubMed search ran**. The system asked the operator to confirm a candidate (ACSM Guidelines 12th ed) drawn from training-data plausibility, the operator confirmed, then the search executed and returned a different source (ACSM 2026 Position Stand). The closed loop self-corrected mid-flow with an "important correction" — friction the operator should never have seen.
+
+Refinement-007 (`records/logs/refinements/refinement-007-closed-loop-turn-flow-search-before-gate-a.md`, 2026-05-04) locked four turn-flow rules:
+
+1. Search executes BEFORE Gate A. Always. Steps 3 (search) and 4 (PMID/figure verification) run silently before any operator confirmation is requested.
+2. Gate A presents verified candidates only. The seed offered must already be verified — exact citation, PMID, exact figure verbatim. No pre-search guesses, no plausibility-ranked menus from training data.
+3. Single turn from mode declaration to Gate A. The operator's first message triggers the entire silent chain: gap → query → search → verification → seed presentation.
+4. Pre-search clarification is the exception, not the default. Only allowed when the search itself cannot be drafted without it.
+
+CLAUDE.md was updated 2026-05-04 with rule 6 added to the Closed-Loop Conversational Discipline subsection ("Search before Gate A"). The tight-pattern example was rewritten to show the silent search → verified Gate A flow. The bloated anti-pattern list was extended to include "pre-search Gate A confirmations." The previous tight-pattern example (asking "you mean Guidelines 12th ed?" before searching) is now classified as part of the bloated anti-pattern.
+
+### What this preserves (fourth time)
+
+The closed loop's substance is unchanged across all four amendments:
+- 10 steps (refinement-004)
+- 3 operator gates (refinement-004)
+- System-triggered + power-user explicit activation (refinement-005)
+- Conversational discipline — ≤2–3 sentences per step, one question per gate, one recommendation, no pre-emptive caveats, Action Override (refinement-006)
+- HL-09 strict, HL-10 strict, Bootstrap v1 First Activation Rule
+
+What refinement-007 locks is **first-turn sequencing** — *when* Gate A fires within the silent execution chain. The discipline is the same; the experience of using it is now single-turn from mode declaration to a verified seed.
+
+### Failure-mode signal
+
+A reliable wrong-path indicator: any time Gate A surfaces a candidate without a PMID and exact figure already attached, the search has not run. That is the refinement-007 violation signal.
+
+---
+
 ## Last Updated
 
 2026-05-02 — initial decision authored. Mode Activation pattern locked as the operator interface to decision-016's lane abstraction. Six mode commands defined with aliases, default behavior, switching syntax, and mode-spanning rules. HL-09 / HL-10 gates evaluated and passed. Five follow-on tasks identified.
 2026-05-03 — amended via refinement-004 after fresh-chat test results surfaced layer-vs-mode confusion. Clinical Mode row corrected to remove explicit Research Layer reference (layer is now framed as implicit/always-on); Research Mode row renamed to Research Authoring Mode with full 10-step closed-loop description. CLAUDE.md updated to match.
 2026-05-04 — amended a second time via refinement-005 after operator architectural review during Zach handoff prep. Research Authoring promoted from primary mode to system-triggered capability + preserved as power-user explicit invocation. Mode Activation table reduced to 5 modes + 1 deferred. CLAUDE.md updated to match. The 10-step closed loop and 3 operator gates from refinement-004 remain unchanged — what changes is the activation pattern, not the discipline.
 2026-05-04 (later) — amended a third time via refinement-006 after the same-day Research Mode test produced bloated closed-loop delivery. Five conversational rules locked: tight per-step output, one question per gate, one recommendation never a menu, no pre-emptive caveats, Action Override preserved. CLAUDE.md updated with Closed-Loop Conversational Discipline subsection including tight pattern + bloated anti-pattern. Closed-loop substance unchanged across all three amendments; what changes is delivery rhythm.
+2026-05-04 (still later) — amended a fourth time via refinement-007 after the second same-day Research Mode test surfaced Gate A before search, producing wrong-path pre-search guess and mid-flow correction. Four turn-flow rules locked: search before Gate A always, verified candidates only at Gate A, single turn from mode declaration to Gate A, pre-search clarification only when search cannot be drafted without it. CLAUDE.md updated with rule 6 added to Conversational Discipline subsection + tight pattern rewritten to show silent search → verified Gate A flow + bloated anti-pattern list extended. Closed-loop substance and conversational discipline unchanged across all four amendments; what changes is first-turn sequencing.
