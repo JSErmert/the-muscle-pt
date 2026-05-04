@@ -244,17 +244,94 @@ Filed as Pre-Alpha-3. One direct authorization promoted to doctrine via refineme
 
 ---
 
+## Pre-Alpha-4 — Analysis (2026-05-04)
+
+**Source:** `records/research/validation/2026-05-04-pre-alpha-4-seed-usage observation.md`
+**Window:** Single fresh-chat session, Josh Max account (continued doctrine-fidelity test cadence). Same template-builder input as Pre-Alpha-2/3 plus 12-week periodization request added to the operator's input. Closed loop fired through 3 gates → mode handoff to Clinical → protocol artifact built with periodization integrated. No session-limit hit.
+**Repo state during the observed session:** CLAUDE.md updated through commit `0179809` (refinements 004–009 active, §6 Iterative Refinement, operator observation loop with Pre-Alpha-1 + Pre-Alpha-2 + Pre-Alpha-3 entries). Refinement-010 was authored *after* this session based on the leak regression surfaced in it; it was not in scope for the chat being observed.
+
+### Pattern observations
+
+1. **Mode-pick picker pattern recurred — third consistent observation.** *"Which mode?"* surfaced as picker again. Three sessions now, same pattern. Doctrine-ambiguous (system vs. Claude.ai web UI affordance) — pattern reliability is now established but root cause still undetermined.
+
+2. **Operator pre-declared mode-spanning workflow — second consistent observation.** Josh typed *"first research and then clinical"* — same operator pattern as Pre-Alpha-3 (*"Research then Clinical"*). Two consistent observations now. **Operator has internalized mode-spanning declaration as preferred entry pattern.** Skipped grounding-path picker entirely both times.
+
+3. **Refinement-007 turn flow PASS** with another tool-fallback observation. System announced *"Searching ACSM 2026 Position Stand on Resistance Training before Gate A."* Search ran. Pulled secondary source ("Move Your Bones breakdown") for verbatim figures. Verification complete.
+
+4. **Tool-failure fallback discipline — second consistent observation.** Pre-Alpha-3 had PMC blocked → Applied Performance fallback. Pre-Alpha-4 had similar pattern (Move Your Bones secondary). HL-09 verification discipline maintained under degraded tool conditions across two sessions. **Now repetition-confirmed.**
+
+5. **HL-09 multi-source verification continued.** *"Figures verify across PubMed, ACSM official, and physiotherapist breakdown."* Consistent with Pre-Alpha-3 multi-source pattern.
+
+6. **Refinement-008 landed verbatim across all 3 gates — second consistent observation.** Each gate closed with *"Recommend X because Y. Confirm or override."* Identical pattern to Pre-Alpha-3. **Refinement-008 is now repetition-confirmed in production.**
+
+7. **Working-set prescription menu DID NOT FIRE — second consistent observation.** Same as Pre-Alpha-3. The canonical Pre-Alpha-2 FAIL surface continues to not appear under the operator's mode-spanning workflow + refinement-008 active. Reliable menu-skip behavior across two sessions.
+
+8. **NEW — ACSM figures expanded.** Pre-Alpha-4 captured richer doctrine extractions than Pre-Alpha-3:
+   - Effort: *"Near-failure (~2–3 RIR) sufficient — absolute failure not required"*
+   - Power: *"≤24 reps × sets total volume"*
+   - Hypertrophy: *"Loads 30%–100% 1RM with sufficient effort"*
+   The system's tool-search depth improved between sessions. May be input-driven (operator added periodization request, which prompted deeper grounding scan).
+
+9. **NEW — 12-week periodization handled substantively well.** Operator added *"Periodization weeks 1-4 perfect down the technique / Weeks 5-8 progressive overload weight in reps / Weeks 9-12 increase intensity push limits"* to the input. System integrated as 3-block periodization with explicit RPE / RIR targets, load progression rules, and reassessment markers per block transition. Substance is correct; form failed (see #11).
+
+10. **§6 Iterative Refinement passively held.** Full-artifact reprint. No iteration arc fired this session. Doctrine still not exercised under iteration pressure across Pre-Alpha-2/3/4.
+
+11. **REGRESSION — 5 internal-identifier leaks (refinement-010 trigger).** This is the dominant Pre-Alpha-4 finding:
+    - **Handoff line** (3 leaks): *"Switching to Clinical Mode. Movement Case Engine active. Building the protocol now, grounded to research-010."*
+    - **Block 2 description** (1 leak): *"HL-05 applies: reassess before advancing — if technique degrades, hold load"*
+    - **Section header** (1 leak): *"HL-05 reassessment markers per block transition:"*
+    
+    Pre-Alpha-3 had 1 leak (closing line only). Pre-Alpha-4 had 5 leaks across artifact body + section headers + handoff line. **Refinement-009's declaration-layer constraint failed to scale with artifact complexity.** Adding 12-week periodization invoked HL-05 doctrine multiple times; the system named the identifier each time. Refinement-010 authored same day to elevate to §7 enforcement layer with pre-return scan-and-translate step.
+
+12. **NEW — Handoff line scope gap surfaced.** Refinement-009 didn't explicitly cover the handoff line (the transition message between closed-loop and artifact build). Pre-Alpha-4 demonstrated the gap — *"Movement Case Engine active. ...grounded to research-010"* leaked because the handoff line wasn't classified as artifact output. Refinement-010 closed the gap by explicitly scoping the handoff line as artifact for translation purposes.
+
+13. **Cue Standardization remained tight** (consistent with Pre-Alpha-3). *"Ribs over hips, hips over heels."* / *"3-1-X-1"* tempo standard / explicit breath control rules. Substantively strong.
+
+14. **Specificity slot logic richer than Pre-Alpha-3.** Pre-Alpha-4 added isometric durations (*"3–5 sets, 20–45 sec"*), Power-set ACSM dosing (*"30–70% 1RM, ≤24 total reps × sets, fast concentric"*) — direct ACSM 2026 power figures embedded. Improvement.
+
+15. **Last line of artifact stayed clean.** *"Reassess every 4 weeks. Reprint the full updated template at each iteration."* No closing-line HL-05 leak this time (unlike Pre-Alpha-3). The leaks shifted location — closing line in Pre-Alpha-3 → mid-artifact + section headers + handoff in Pre-Alpha-4. Same root cause, different surface.
+
+16. **Operator's vocabulary varied across gates** — *"lock"* / *"proceed"* / *"confirm"*. Mixed but all parsed correctly. Different from Pre-Alpha-3's consistent *"confirm"* register.
+
+### Highest-leverage observations to watch for repetition
+
+- **§7 Internal-Identifier Translation Pass (refinement-010 just locked).** Watch Pre-Alpha-5 for clean artifact output. Patterns must NOT recur: HL-X anywhere in artifact, research-XXX anywhere in artifact, engine names on handoff line, mode declarations as artifact framing. If refinement-010 lands, doctrine progression is observation → analysis → enforcement-layer doctrine → next-chat behavior change. If still leaking, even harder enforcement is needed (e.g., output-formatting hooks).
+- **Mode-pick picker pattern.** Now 3 consistent observations. Doctrine-ambiguous. If Pre-Alpha-5 confirms a fourth time, pattern reliability is fully established and either (a) we accept the platform UI rendering or (b) we author a doctrine touch around how the mode-pick gets framed.
+- **Operator mode-spanning declaration as preferred entry pattern.** Two consistent observations. If recurs, may warrant doctrine recognition as the canonical operator entry pattern for multi-mode work (e.g., explicit example in §2 mode-switching documentation).
+- **Tool-failure fallback discipline.** Two consistent observations. Worth promoting to doctrine recognition — *"under tool failure, system surfaces alternative verification source rather than fabricating or bailing"* is now established behavior, not chance. Could be added to refinement-007 as a recognized sub-pattern.
+- **§6 Iterative Refinement under iteration pressure.** Still not exercised across Pre-Alpha-2/3/4. Watch Pre-Alpha-5 for whether reprint discipline holds across 5+ refinements in an arc.
+- **Declaration-vs-enforcement doctrine pattern.** Refinement-010's meta-learning lesson — *"declaration-layer doctrine doesn't scale with artifact complexity; fix is enforcement-layer, not stricter declaration"* — should be tested against other principle-language constraints in CLAUDE.md. Watch for whether other §5 constraints regress similarly under complexity (factor-watching ban, tool-migration ban, etc.).
+- **Artifact richness scaling with input complexity.** Pre-Alpha-4 had richer ACSM figures than Pre-Alpha-3 because the operator's input was richer (added periodization). Watch whether this is a reliable pattern (richer input → richer grounding) or session-specific.
+
+### Direct operator authorizations (immediately doctrine-eligible)
+
+1. **Internal-identifier scan-and-translate enforcement (refinement-010).** Verbatim from operator after seeing the 5 leaks: *"there is still plenty of internal jargon please identify each time something appears that is not pt language ( i still see HL-05...)."* Stated rule. **Promoted 2026-05-04** to refinement-010 + CLAUDE.md §7 OUTPUT TRANSLATION new subsection (Internal-Identifier Translation Pass).
+
+### Disposition
+
+Filed as Pre-Alpha-4. One direct authorization promoted to doctrine via refinement-010 (§7 enforcement layer added; declaration → enforcement transition recorded as meta-learning lesson). Pattern observations and watch items held for repetition check against Pre-Alpha-5.
+
+**Net signal from Pre-Alpha-4:**
+
+- **Refinement-008 repetition-confirmed.** Two consistent observations of clean recommendation-closes-the-call across all 3 gates. Doctrine fully landed.
+- **Refinement-007 strengthened with second tool-failure fallback observation.** Repetition-confirmed.
+- **Refinement-009 regressed under increased artifact complexity** (1 leak → 5 leaks when periodization was added). Refinement-010 authored to elevate to §7 enforcement layer.
+- **Operator observation loop now demonstrating its highest-value pattern** — surfacing doctrine that's strong-enough-for-simple-cases but breaks under complexity. The loop catches this BEFORE it becomes systemic. Each iteration sharpens the doctrine; each next iteration tests the sharpening.
+- **Three iterations of refinement now demonstrably driven by the loop:** Pre-Alpha-2 → refinement-008 (menus); Pre-Alpha-3 → refinement-009 (identifier leaks declaration); Pre-Alpha-4 → refinement-010 (identifier leaks enforcement). The loop is the doctrine-evolution engine.
+
+---
+
 ## Future entries
 
 Each subsequent observation appends a section here:
 
-- `## Pre-Alpha-4 — Analysis (YYYY-MM-DD)`
 - `## Pre-Alpha-5 — Analysis (YYYY-MM-DD)`
+- `## Pre-Alpha-6 — Analysis (YYYY-MM-DD)`
 - ...
 
 Each entry follows the same structure: source pointer, window, repo state, pattern observations, watch items, direct operator authorizations, disposition.
 
-When patterns repeat across entries, doctrine updates surface in the next refinement cycle (same mechanism as refinement-001 through refinement-009).
+When patterns repeat across entries, doctrine updates surface in the next refinement cycle (same mechanism as refinement-001 through refinement-010).
 
 ---
 
@@ -263,3 +340,4 @@ When patterns repeat across entries, doctrine updates surface in the next refine
 2026-05-04 — initial doc authored. Loop architecture established. Five discipline rules locked. Pre-Alpha-1 analysis filed (12 pattern observations + 6 watch items + 3 direct operator authorizations evaluated). One authorization promoted to CLAUDE.md §6 (full-artifact reprint on iteration); two held (PRI breath cadence as wrong doctrine layer; 4–5 cues per exercise as case-context-dependent, awaiting repetition).
 2026-05-04 (later) — Pre-Alpha-2 analysis filed (14 pattern observations + 7 watch items + 2 direct operator authorizations evaluated). One authorization promoted to refinement-008 + CLAUDE.md §2 rule 3 + decision-017 fifth amendment ("recommendation closes every gate"); one meta-learning lesson promoted to loop discipline ("pattern claims must be specific about what repeated, not summary counts"). Net signal: refinements 004–007 + §6 Iterative Refinement landed in production cleanly. Refinement-008 emerged as new finding requiring rule 3 sharpening. Pre-session context-budget overflow and Claude.ai 90% session-limit observed as platform constraints separate from doctrine.
 2026-05-04 (still later) — Pre-Alpha-3 analysis filed (16 pattern observations + 6 watch items + 1 direct operator authorization evaluated). Doctrine-fidelity test in Josh Max account; budget-realism test type formally distinguished. One authorization promoted to refinement-009 + CLAUDE.md §5 sharpening (internal-identifier leakage prohibition with closed-loop gate exception). Net signal: refinement-008 fully landed in production verbatim across all 3 gates; the canonical Pre-Alpha-2 working-set FAIL surface did not appear; refinement-007 strengthened with tool-failure fallback discipline. Refinement-009 emerged from HL-05 leak (real hard lock, §5 violation in form not substance). Operator observation loop now demonstrably functional: two iterations (Pre-Alpha-2 → refinement-008; Pre-Alpha-3 → refinement-009) showing observation → analysis → doctrine refinement → next-chat behavior change.
+2026-05-04 (latest) — Pre-Alpha-4 analysis filed (16 pattern observations + 7 watch items + 1 direct operator authorization evaluated). Doctrine-fidelity test in Josh Max account with 12-week periodization added to the operator's input. One authorization promoted to refinement-010 + CLAUDE.md §7 OUTPUT TRANSLATION enforcement subsection (Internal-Identifier Translation Pass with pre-return scan-and-translate step + handoff line scope). Net signal: refinements 007 + 008 repetition-confirmed; tool-failure fallback discipline repetition-confirmed. Refinement-009 regressed under increased artifact complexity (1 leak in Pre-Alpha-3 → 5 leaks in Pre-Alpha-4). Refinement-010 elevates declaration-layer constraint to enforcement-layer doctrine. Three loop iterations now demonstrate doctrine evolution: Pre-Alpha-2 → refinement-008 (menus); Pre-Alpha-3 → refinement-009 (identifier-leak declaration); Pre-Alpha-4 → refinement-010 (identifier-leak enforcement). Loop is the doctrine-evolution engine — each iteration sharpens; each next iteration tests the sharpening. Meta-learning lesson recorded: declaration-layer doctrine doesn't scale with artifact complexity; fix is enforcement-layer, not stricter declaration.
