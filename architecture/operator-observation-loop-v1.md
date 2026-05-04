@@ -378,7 +378,7 @@ Filed as Pre-Alpha-5. Two direct authorizations promoted to doctrine via refinem
 
 ## Pre-Alpha-6 — Analysis (2026-05-04)
 
-**Source:** Pre-Alpha-6 fresh-chat session (raw transcript not separately filed; pasted into operator observation conversation and analyzed inline).
+**Source:** `records/research/validation/2026-05-04-pre-alpha-6-seed-usage observation.md`
 **Window:** Single fresh-chat session, Josh Max account. Same template-builder + 12-week periodization input. **System checked project knowledge first, found research-010 already exists, bypassed the closed loop entirely** (Gates A/B/C did not fire), built the protocol directly. No session-limit hit.
 **Repo state during the observed session:** CLAUDE.md updated through commit `c9a89e1` (refinements 004–011 active including Action Override placement of identifier-translation rule, refusal framing in §7, concrete WRONG/CORRECT examples, two-tier closed-loop exception). Refinement-012 was authored *after* this session to close the two remaining surfaces it surfaced.
 
@@ -428,12 +428,69 @@ Filed as Pre-Alpha-6. One direct authorization promoted to refinement-012. Pre-A
 
 ---
 
+## Pre-Alpha-7 — Analysis (2026-05-04)
+
+**Source:** `records/research/validation/2026-05-04-pre-alpha-7-seed-usage observation.md`
+**Window:** Single fresh-chat session, Josh Max account, doctrine-fidelity test cadence. Same template-builder + 12-week periodization input as Pre-Alpha-4/5/6. System checked project knowledge first, found research-010 already locked, bypassed Research Authoring entirely (no Gates A/B/C this run), presented working-set decision (3 ranked options with refinement-008 closing recommendation) → operator picked option A (hybrid: 1 max-effort + 1 back-off) → protocol artifact built. No session-limit hit.
+**Repo state during the observed session:** CLAUDE.md updated through refinement-012 active commit (refinements 004–012, Pre-Alpha-1 through Pre-Alpha-6 entries filed). Refinement-013 was authored *after* this session in response to operator correction of refinement-012's bypass-message over-translation + new HL-X justification-framing surface.
+
+### Critical finding: artifact deliverable CLEAN; refinement-012 over-translation surfaced via operator correction
+
+The artifact body — what reaches a PT or end client — has zero internal-identifier leaks. Refinement evolution arc 008 → 009 → 010 → 011 → 012 cumulatively succeeded for the client-facing deliverable. Two operator-facing residuals surfaced; one was reclassified from leak to legitimate operator value via operator correction, exposing the principle that refinements 009-012 had been chasing surface-by-surface.
+
+### Pattern observations
+
+1. **Refinement-012 substantially landed for artifact deliverable.** Zero HL-X anywhere in artifact body. Zero engine names. Zero research-XXX in body. Zero refinement-XXX, decision-XXX. Zero L1/L2/L3, lane names, contract names. PMID 41843416 cited per §7 Citation Format. Modification Triggers, 12-week periodization, cue stack, split templates, specificity block — all clean. **The dominant Pre-Alpha-3/4/5 violation patterns are gone.**
+
+2. **Refinement-012 handoff mode-naming drop landed verbatim.** Handoff line: *"Locked. Building the protocol."* No "Switching to Clinical Mode," no engine name, no record ID. Refinement-012's CORRECT example landed exactly as authored.
+
+3. **Refinement-008 recommendation-closes-the-call held — fourth consistent observation.** Working-set decision (the canonical Pre-Alpha-2 FAIL surface) presented as 3-option ranked picker WITH closing recommendation: *"Recommend A. Hybrid keeps your 1 max-effort intent, lifts weekly volume toward ACSM's hypertrophy threshold via 2x/week frequency, and stays inside the 60-min envelope. Confirm or override."* **Refinement-008 doctrine landing: four consistent observations now (Pre-Alpha-3, 4, and 7).**
+
+4. **NEW POSITIVE BEHAVIOR — flexibility via ranked options + recommendation.** Pre-Alpha-3/4/5/6 had skipped the working-set decision surface entirely under operator's mode-spanning declaration or the bypass route. Pre-Alpha-7 surfaced it (likely because the bypass path made the closed loop irrelevant but the working-set deviation from ACSM's strength prescription remained a multi-way operator decision) and handled it with clean refinement-008 discipline. Operator's response: *"interesting... now its providing more flexibility and recommendation (thats pretty intuitive)."* The system is exposing genuine multi-way operator decisions when they exist, ranked, with the system's call closing.
+
+5. **NEW SURFACE — HL-X used adverbially as justification framing.** *"Per HL-09 the deviation must be disclosed and the deviation itself is your call."* HL-X used adverbially in operator-facing prose, not as the subject of a confirmation question. Refinements 009-012 had treated HL-X uniformly as "translate in artifact / allow at gates"; this case sits in a third zone — operator-facing prose where HL-X has no lookup affordance for any reader.
+
+6. **REFINEMENT-012 OVER-TRANSLATION SURFACED — bypass-message record-ID rule.** Pre-Alpha-7 bypass message: *"research-010 already locked at High confidence from prior session (PMID 41843416, ACSM 2026 Position Stand). No new authoring needed."* Refinement-012 had treated *research-010* as a leak. **Operator correction reframed:** *"shouldnt the id be surfaced though? what if the user asks where its from? i think the only acceptable one is the record id so the user knows where its stored."* The record ID is the operator's storage pointer — refinement-012's CORRECT example wrongly stripped it. **Refinement-013 corrects.**
+
+7. **Bypass-when-record-exists pattern held — second consistent observation.** Same intelligent state-aware behavior as Pre-Alpha-6. System checked project knowledge first, found research-010, bypassed Research Authoring entirely. Net behavior is correct; messaging surface refined further by refinement-013.
+
+8. **Test methodology terminology partially translated.** Pre-Alpha-6's *"prior Pre-Alpha sessions"* → Pre-Alpha-7's *"prior session"*. Refinement-012's terminology fix landed.
+
+9. **Closing line preserved iteration discipline.** Artifact closed with *"Confirm template, or call out the section you want to modify first."* Refinement-008 recommendation discipline held through artifact close. §6 Iterative Refinement positioned for an iteration arc had operator chosen to refine.
+
+### Highest-leverage observations
+
+- **Pre-Alpha-8 will determine Alpha handoff readiness — final Pre-Alpha pass per operator authorization.** Operator authorized: *"this will be the last pre-alpha pass."* Same input under refinement-013 doctrine. Expected output: clean artifact body (refinements 009/010/011/012/013 cumulative), clean handoff (refinement-012 mode-naming drop preserved), bypass message keeps research-XXX storage pointer with *"prior session"* terminology and drops *"No new authoring needed"*, justification framing in principle-language not HL-X. If clean → Alpha locks. If residual leaks persist → model ceiling acknowledged for that surface only; operator-side review for the residual.
+- **Audience-based identifier model now established.** Refinement-013's reframe (operator-facing keeps storage pointers; client-facing translates everything) clarifies the principle that refinements 009-012 had been chasing surface-by-surface. Future identifier-discipline questions resolve against audience, not surface.
+- **§6 Iterative Refinement still unexercised across Pre-Alpha-2 through Pre-Alpha-7.** Worth deliberately testing in an Alpha-N or Beta-N iteration arc (e.g., 5+ refinements on the protocol output to validate full-artifact reprint discipline holds at depth).
+
+### Direct operator authorizations (immediately doctrine-eligible)
+
+1. **Audience-based identifier discipline (refinement-013).** Verbatim from operator: *"shouldnt the id be surfaced though? what if the user asks where its from? i think the only acceptable one is the record id so the user knows where its stored."* Stated rule reframing refinement-012's translation overreach. **Promoted 2026-05-04** to refinement-013 + CLAUDE.md Action Override + §5 + §7 restructure around audience model. Refinement-012 bypass-message rule SUPERSEDED; handoff mode-naming drop preserved.
+
+2. **Final Pre-Alpha pass framing.** Verbatim from operator: *"authorize. this will be the last pre-alpha pass."* Pre-Alpha-8 is the closing test under refinement-013 doctrine.
+
+### Disposition
+
+Filed as Pre-Alpha-7. Two direct authorizations promoted: (a) refinement-013 audience-based model corrects refinement-012 over-translation and adds HL-X justification-framing scope; (b) Pre-Alpha-8 scoped as final Pre-Alpha pass. Pre-Alpha milestone path: refinement-013 commits → Pre-Alpha-8 fresh run → Alpha lock. Carousel Mode development happens during Zach's 1-week Alpha testing window; Carousel Mode addition + Zach feedback → Beta version.
+
+**Net signal from Pre-Alpha-7:**
+
+- **Refinement-012 substantially landed for artifact deliverable.** Zero internal-identifier leaks anywhere in client-facing artifact body. Refinement evolution arc 008 → 009 → 010 → 011 → 012 cumulatively succeeded.
+- **Refinement-012 over-translation surfaced via operator correction.** Bypass-message record-ID rule wrongly stripped the operator's storage pointer. Refinement-013 corrects.
+- **HL-X justification-framing emerged as new surface.** Refinement-013 closes via audience-based model + new WRONG/CORRECT pair.
+- **Refinement-008 doctrine landing: four consistent observations.** Recommendation-closes-the-call reliably held.
+- **Six loop iterations now demonstrate doctrine evolution from observation to refinement:** Pre-Alpha-2 → refinement-008; Pre-Alpha-3 → refinement-009; Pre-Alpha-4 → refinement-010; Pre-Alpha-5 → refinement-011; Pre-Alpha-6 → refinement-012; Pre-Alpha-7 → refinement-013. The loop is the doctrine-evolution engine.
+- **Audience-based identifier model is the cleaner principle.** Earlier refinements (009-012) had been chasing surface-based rules; refinement-013's audience-based reframe is what the principle should have been from the start. Loop discipline lesson recorded: when a refinement adds friction (over-translation that strips legitimate operator value), the underlying rule may need reframing rather than extension.
+
+---
+
 ## Future entries
 
 Each subsequent observation appends a section here:
 
-- `## Pre-Alpha-7 — Analysis (YYYY-MM-DD)` — Alpha-readiness check
-- `## Alpha-N — Analysis (YYYY-MM-DD)` — founder testing entries
+- `## Pre-Alpha-8 — Analysis (YYYY-MM-DD)` — final Pre-Alpha pass; result determines Alpha lock
+- `## Alpha-N — Analysis (YYYY-MM-DD)` — founder testing entries (Zach's 1-week production testing)
 - `## Beta-N — Analysis (YYYY-MM-DD)` — post-Carousel Mode entries
 - ...
 
@@ -451,3 +508,5 @@ When patterns repeat across entries, doctrine updates surface in the next refine
 2026-05-04 (latest) — Pre-Alpha-4 analysis filed (16 pattern observations + 7 watch items + 1 direct operator authorization evaluated). Doctrine-fidelity test in Josh Max account with 12-week periodization added to the operator's input. One authorization promoted to refinement-010 + CLAUDE.md §7 OUTPUT TRANSLATION enforcement subsection (Internal-Identifier Translation Pass with pre-return scan-and-translate step + handoff line scope). Net signal: refinements 007 + 008 repetition-confirmed; tool-failure fallback discipline repetition-confirmed. Refinement-009 regressed under increased artifact complexity (1 leak in Pre-Alpha-3 → 5 leaks in Pre-Alpha-4). Refinement-010 elevates declaration-layer constraint to enforcement-layer doctrine. Three loop iterations now demonstrate doctrine evolution: Pre-Alpha-2 → refinement-008 (menus); Pre-Alpha-3 → refinement-009 (identifier-leak declaration); Pre-Alpha-4 → refinement-010 (identifier-leak enforcement). Loop is the doctrine-evolution engine — each iteration sharpens; each next iteration tests the sharpening. Meta-learning lesson recorded: declaration-layer doctrine doesn't scale with artifact complexity; fix is enforcement-layer, not stricter declaration.
 2026-05-04 (latest²) — Pre-Alpha-5 analysis filed (6 pattern observations + 3 watch items + 2 direct operator authorizations evaluated). Doctrine-fidelity test, fresh run identical to Pre-Alpha-4 input. Two authorizations promoted to refinement-011 four-element bundle: (a) Action Override placement of identifier-translation refusal rule, (b) refusal framing replacing transformation framing in §7, (c) concrete WRONG/CORRECT examples with verbatim Pre-Alpha-4/5 leaks documented in §7, (d) closed-loop exception tightened to two-tier model (specific identifiers allowed; abstract architecture terminology translates). Net signal: refinements 007 + 008 + tool-failure fallback held under fresh execution (third consistent observation). Refinement-010 FAILED under fresh execution — identical 5 leaks recurred. Doctrine has either a placement / framing problem or a model instruction-following ceiling. Refinement-011 is the strongest single doctrine attempt before accepting the ceiling. Pre-Alpha-6 result determines next move. Loop discipline lesson: doctrine has limits; the honest operator observation loop must include "what doctrine cannot fix" as a category alongside "what new doctrine prevents."
 2026-05-04 (latest³) — Pre-Alpha-6 analysis filed (6 pattern observations + 2 watch items + 1 direct operator authorization evaluated). Refinement-011 SUBSTANTIALLY LANDED — dominant Pre-Alpha-4/5 violations all gone (HL-X anywhere: 0 vs 2; engine names: 0 vs 1; research-XXX in artifact: 0 vs 1). Two uncovered surfaces remained: (a) bypass message when system found existing research-010 and skipped closed loop entirely, leaking record ID + "Pre-Alpha sessions" terminology; (b) "Switching to Clinical Mode" kept on handoff line per two-tier model judgment call. Authorization promoted to refinement-012 (final Pre-Alpha refinement) — closes both surfaces via §7 WRONG/CORRECT examples extension + Action Override scope language. Pre-Alpha milestone now scoped: Pre-Alpha-7 fresh run determines Alpha handoff readiness. Clean = Alpha lock + handoff to founder Zach for 1-week testing while operator develops Carousel Mode → Beta. Persistent leaks = model ceiling acknowledged + operator-side review as production safeguard. Either outcome unblocks Alpha. Loop discipline correction recorded: refinement-011's "ceiling-or-fix" framing was premature — Pre-Alpha-6 showed doctrine continues to land for explicitly-addressed patterns; new surfaces are normal in production-grade testing; refinement-012 is final cleanup, not capitulation.
+
+2026-05-04 (latest⁴) — Pre-Alpha-7 analysis filed (9 pattern observations + 3 watch items + 2 direct operator authorizations evaluated). Refinement-012 SUBSTANTIALLY LANDED for the artifact deliverable — zero internal-identifier leaks anywhere in client-facing artifact body (HL-X, engine names, research-XXX, refinement-XXX, decision-XXX, L1-L3, lane names, contract names all absent). Refinement-008 recommendation-closes-the-call held verbatim across the working-set decision (fourth consistent observation). Two operator-facing residuals surfaced: (a) refinement-012 OVER-TRANSLATION on bypass-message record-ID rule — operator correction reframed (*"shouldnt the id be surfaced though? ... record id so the user knows where its stored"*) revealing record IDs are operator storage pointers, not leaks; (b) HL-X used adverbially as justification framing (*"Per HL-09 the deviation must be disclosed"*) — new surface refinements 009-012 didn't anticipate. Two authorizations promoted: refinement-013 audience-based identifier discipline (corrects refinement-012 bypass-message rule + adds HL-X adverbial scope) + Pre-Alpha-8 framed as final Pre-Alpha pass. Audience-based model: client-facing artifact body translates everything; operator-facing surfaces keep storage pointers (research-XXX) and verifiable references (PMID, source names, Gate naming, HL-X-as-confirmation-subject), translate HL-X-adverbial / refinement-XXX / decision-XXX / §X / architecture terminology / test methodology. Six loop iterations now demonstrate doctrine evolution: Pre-Alpha-2→refinement-008; -3→009; -4→010; -5→011; -6→012; -7→013. Loop discipline lesson: when a refinement adds friction (over-translation stripping legitimate operator value), the underlying rule needs reframing rather than extension. Earlier refinements chased surface-by-surface rules; audience-based reframe is the cleaner principle that should have been there from the start.

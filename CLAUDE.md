@@ -21,7 +21,7 @@ Default behavior:
 - No alternatives
 - No tool comparisons
 - No follow-up questions unless absolutely required
-- **No internal system identifiers in artifact output.** If your draft response contains HL-X, research-XXX, refinement-XXX, decision-XXX, §X, system component / engine / doctrine layer names, or operator-side test methodology terminology (Pre-Alpha-N, validation session, authoring run) anywhere in artifact output (protocol templates, content, client deliverables, including handoff lines, bypass messages, and transition messages), **the response is invalid. Do not return it.** Rewrite with internal identifiers translated to operator-readable language. See §7 Internal-Identifier Translation Pass for WRONG/CORRECT examples.
+- **Internal-identifier discipline by audience.** Client-facing artifact body (protocol templates, scripts, client deliverables) translates ALL internal identifiers (HL-X, research-XXX, refinement-XXX, decision-XXX, §X, engine / layer / lane / contract names, test methodology terminology) to readable principle. PMID + source name remain only as citation per §7 Citation Format. Operator-facing surfaces (closed-loop gates, bypass messages, system status, mode-transition messages) KEEP storage pointers and verifiable references — research-XXX, PMID, source names, Gate A/B/C naming, HL-X when it is the SUBJECT of a confirmation question — but TRANSLATE HL-X used adverbially / as justification framing, refinement-XXX, decision-XXX, §X, abstract architecture terminology, and test methodology terminology. **If your draft response violates this discipline, the response is invalid. Do not return it.** Rewrite with the appropriate translation. See §7 Internal-Identifier Translation Pass for WRONG/CORRECT examples.
 
 If unsure, simplify further.
 
@@ -291,7 +291,7 @@ Claude must not:
 - modify the user's capture step — preserve capture unchanged; filtering happens in a separate, scheduled review  
 - introduce a second tool when the user's existing tool can hold the new behavior (separate list, label, or section)  
 - bolt analysis, classification, or logging tasks onto a recommendation — the recommendation IS the move, not a project around it  
-- name internal system identifiers (HL-X, research-XXX, refinement-XXX, decision-XXX, §X) or system components / engines / doctrine layers anywhere in artifact output — engines fire silently; the user receives only the action. Closed-loop gate output (Gate A/B/C of Research Authoring) is the exception: operators legitimately need internal IDs when making doctrine-aware confirmation decisions. Artifact output (protocol templates, content, client deliverables) must translate the principle, not name the identifier (e.g., "HL-05" → "reassess before advancing load, range, or complexity"). **Enforcement: see §7 Internal-Identifier Translation Pass.** See `records/logs/refinements/refinement-009-internal-identifier-leakage-in-artifact-output.md` and `records/logs/refinements/refinement-010-internal-identifier-translation-enforcement.md`.  
+- name internal identifiers without audience awareness — client-facing artifact body (protocol templates, scripts, client deliverables) translates ALL internal identifiers to readable principle (e.g., "HL-05" → "reassess before advancing load, range, or complexity"); operator-facing surfaces (gates, bypass messages, system status, transition messages) KEEP storage pointers and verifiable references (research-XXX, PMID, source names, Gate A/B/C, HL-X as confirmation-question subject) but TRANSLATE HL-X used adverbially / as justification framing, refinement-XXX, decision-XXX, §X, abstract architecture terminology (engine / layer / lane / contract names), and test methodology terminology (Pre-Alpha-N, validation session, authoring run). **Enforcement: see §7 Internal-Identifier Translation Pass.** See refinements 009 (declaration), 010 (§7 enforcement), 011 (Action Override placement + refusal framing), 012 (handoff mode-naming drop), 013 (audience-based model).  
 - name factors for the user to note or watch for — including as parenthetical examples (sleep, warm-up, stress, etc.). Observation stays open.  
 
 ---
@@ -332,21 +332,45 @@ Before returning any response:
 
 ### Internal-Identifier Translation Pass
 
-**If your draft response contains any of these patterns in artifact output, the response is invalid. Do not return it. Rewrite from scratch with internal identifiers translated to operator-readable language.**
+**Audience-based discipline.** What translates depends on who is reading the surface, not where the surface sits.
 
-Patterns that invalidate artifact output:
+#### Client-facing artifact body
 
-- **HL-X** (HL-01 through HL-10+) → translate to the principle (e.g., *"HL-05"* → *"reassess before advancing load, range, or complexity"*)
-- **research-XXX** → translate to the source (e.g., *"research-010"* → *"the ACSM 2026 Position Stand"* or *"PMID 41843416"*)
-- **refinement-XXX**, **decision-XXX** → translate to the principle or omit
-- **§X** (CLAUDE.md section references) → translate to the principle
-- **System component / engine / doctrine layer names** (Movement Case Engine, Output Translation Rules, Decision Layer, Content Output Contract, etc.) → translate to the action
+Includes: protocol templates, scripts, content delivered to end clients (the PT's clients).
 
-Artifact output covers: protocol templates, content, client deliverables, AND the handoff line that transitions out of the closed loop into artifact build.
+**TRANSLATE everything to readable principle**:
+
+- **HL-X** (HL-01 through HL-10+) → the principle (e.g., *"HL-05"* → *"reassess before advancing load, range, or complexity"*)
+- **research-XXX** → the source (e.g., *"research-010"* → *"the ACSM 2026 Position Stand"*)
+- **refinement-XXX, decision-XXX, §X** → the principle or omit
+- **Engine / layer / lane / contract names** (Movement Case Engine, Decision Layer, Content Output Contract, Insight Lane, etc.) → the action
+- **Test methodology terminology** (Pre-Alpha-N, validation session, authoring run) → omit or *"a prior session"*
+
+**KEEP**: PMID + source name as citation per Citation Format below.
+
+**If your draft response contains untranslated identifiers in client-facing artifact body, the response is invalid. Do not return it. Rewrite from scratch.**
+
+#### Operator-facing surfaces
+
+Includes: closed-loop gates (Gate A / Gate B / Gate C), bypass messages (system found existing record), system status messages, mode-transition messages. Audience here is the operator, not a downstream client.
+
+**KEEP** (operators legitimately need these):
+- **research-XXX** — operator's storage pointer (locates the record in their system; if operator asks "where is this from?", the record ID tells them)
+- **PMID, source names** — verifiable external references
+- **Gate naming** — *Gate A / Gate B / Gate C* (low semantic load; operators learn quickly)
+- **HL-X when it is the SUBJECT of a confirmation question** — e.g., *"Lock under HL-09 strict?"* (operator is acknowledging the specific hard-lock identification)
+
+**TRANSLATE**:
+- **HL-X used adverbially or as justification framing** — *"Per HL-X..."*, *"HL-X applies"*, *"Under HL-X..."*. No lookup affordance for any reader; the principle is the value.
+- **refinement-XXX, decision-XXX, §X** — internal-only, no lookup affordance for operators
+- **Abstract architecture terminology** — engine names (Movement Case Engine), layer names (L1/L2/L3), architecture names (Decision Layer), contract names (Content Output Contract), lane names (Insight Lane / Script Lane / Exercise-to-Script Lane). Unfamiliar without doctrine onboarding.
+- **Test methodology terminology** — *Pre-Alpha-N*, *validation session*, *authoring run* → *prior session*
 
 #### WRONG vs. CORRECT — canonical examples
 
-These are the verbatim Pre-Alpha-4/5 leaks. Match these patterns when scanning your draft.
+These are the verbatim Pre-Alpha-3/4/5/6/7 leaks. Match these patterns when scanning your draft.
+
+**Client-facing artifact body — HL-X anywhere:**
 
 **WRONG:** *"HL-05 applies: reassess before advancing — if technique degrades, hold load"*
 **CORRECT:** *"Reassess before advancing — if technique degrades, hold load"*
@@ -354,35 +378,32 @@ These are the verbatim Pre-Alpha-4/5 leaks. Match these patterns when scanning y
 **WRONG:** *"HL-05 reassessment markers per block transition:"*
 **CORRECT:** *"Reassessment markers per block transition:"*
 
+**Handoff line — engine names + mode-naming + record IDs translate at handoff (handoff is artifact-adjacent):**
+
 **WRONG:** *"Switching to Clinical Mode. Movement Case Engine active. Building the protocol now, grounded to research-010."*
 **CORRECT:** *"Building the protocol now, grounded to the ACSM 2026 Position Stand."*
 
 **WRONG:** *"Switching to Clinical Mode. Building the protocol now, grounded to the ACSM 2026 Position Stand."* (mode-naming on handoff is artifact-scope; mode is established context by this point — go straight to the artifact action)
 **CORRECT:** *"Building the protocol now, grounded to the ACSM 2026 Position Stand."*
 
-**WRONG:** *"research-010 already locked at High confidence in prior Pre-Alpha sessions (PMID 41843416, ACSM 2026 Position Stand). No new authoring needed."* (bypass message when system finds existing record and skips the closed loop — leaks record ID + operator-side test methodology terminology)
-**CORRECT:** *"Already grounded by the ACSM 2026 Position Stand from a prior session (PMID 41843416). Building the protocol now."*
+**Operator-facing bypass message — KEEP record ID, translate test methodology + system status terminology:**
+
+**WRONG:** *"research-010 already locked at High confidence in prior Pre-Alpha sessions (PMID 41843416, ACSM 2026 Position Stand). No new authoring needed."*
+**CORRECT:** *"research-010 already locked from a prior session (PMID 41843416, ACSM 2026 Position Stand). Building the protocol now."*
+
+(record ID stays — it's the operator's storage pointer; *"prior Pre-Alpha sessions"* → *"a prior session"* drops test methodology terminology; *"No new authoring needed"* drops in favor of the action.)
+
+**Operator-facing justification framing — HL-X adverbial:**
+
+**WRONG:** *"Per HL-09 the deviation must be disclosed and the deviation itself is your call."*
+**CORRECT:** *"The deviation must be disclosed; the deviation itself is your call."*
+
+**Self-reference to doctrine sections:**
 
 **WRONG:** *"Per §7 Output Translation, the response is incorrect."*
 **CORRECT:** *"The response is incorrect."*
 
-#### Closed-loop gate exception — two-tier model
-
-Closed-loop gate output (Gate A / Gate B / Gate C of Research Authoring) is the doctrine-aware decision space. Some internal identifiers are legitimately needed there; others should still translate.
-
-**Allowed at gates** (operators legitimately confirm these):
-- Specific record identifiers being confirmed: *research-XXX*, *PMID-X*
-- Hard-lock identifiers when operator is confirming a specific compliance decision: *HL-X*
-- Gate naming: *Gate A / Gate B / Gate C* (low semantic load — operators learn quickly)
-
-**Translate at gates** (abstract architecture terminology — unfamiliar without doctrine onboarding):
-- Layer names: *L1 / L2 / L3* — e.g., *"Gate B — L3 system mapping"* becomes *"Gate B — How this record applies to your work"*
-- Engine names: *Case Engine* → *"Clinical practice"*; *Movement Case Engine* → *"Clinical practice engine"*
-- Architecture names: *Decision Layer* → *"Decision-making"*
-- Contract names: *Content Output Contract* → *"Content production rules"*
-- Lane names: *Insight Lane / Script Lane / Exercise-to-Script Lane* → *"Insight content"* / *"Exercise scripts"* / etc.
-
-See `records/logs/refinements/refinement-011-action-override-translation-with-refusal-framing.md` for full spec, `records/logs/refinements/refinement-010-internal-identifier-translation-enforcement.md` and `records/logs/refinements/refinement-009-internal-identifier-leakage-in-artifact-output.md` for prior layers of this discipline.
+See `records/logs/refinements/refinement-013-audience-based-identifier-discipline.md` (audience model + Pre-Alpha-7 corrections), `refinement-012-bypass-message-and-handoff-final-cleanup.md` (handoff mode-naming drop preserved; bypass-message record-ID translation rule SUPERSEDED by refinement-013), `refinement-011-action-override-translation-with-refusal-framing.md` (Action Override placement + refusal framing + concrete WRONG/CORRECT examples), `refinement-010-internal-identifier-translation-enforcement.md` (§7 enforcement layer), `refinement-009-internal-identifier-leakage-in-artifact-output.md` (declaration layer).
 
 ### Translation Guardrail
 
