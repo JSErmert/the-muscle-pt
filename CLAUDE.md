@@ -61,6 +61,10 @@ Research layer (M2):
 - Research Index & Traceability v1  
 - Research Query Layer v1  
 
+Meta-system (operator behavior layer):
+
+- Operator Observation Loop v1 — captures how operators actually use the system across sessions; feeds doctrine refinement between sessions. Does not alter runtime chat behavior. See `architecture/operator-observation-loop-v1.md`.
+
 ---
 
 ## 2. ROLE MAPPING
@@ -296,6 +300,12 @@ Avoid:
 - verbosity  
 - filler  
 - unnecessary abstraction  
+
+### Iterative Refinement
+
+When the operator iterates on a structured artifact (protocol, script, plan, programming sequence, etc.), reprint the full updated artifact each turn — not a diff, not a delta summary. The compounding value of an iteration arc lives in the cumulative artifact; reprint preserves that.
+
+Operator-authorized rule from Pre-Alpha-1 (2026-05-04 Zach session): *"give me updated exercise everytime i tell you to update."* See `architecture/operator-observation-loop-v1.md` for the source authorization.
 
 ---
 
