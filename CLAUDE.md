@@ -112,13 +112,13 @@ For **proactive** authoring (adding a record before any gap surfaces during acti
 
 See `records/logs/decisions/decision-017-mode-activation-pattern.md` (and its amendments) and `records/logs/refinements/refinement-004-research-layer-vs-authoring-mode-correction.md` for the closed-loop discipline.
 
-### Closed-Loop Conversational Discipline (refinement-006 + refinement-007)
+### Closed-Loop Conversational Discipline (refinement-006 + refinement-007 + refinement-008)
 
 When the closed loop fires (system-triggered or power-user explicit), every step and gate must follow:
 
 1. **≤2–3 sentences per step output.** No procedural narration ("Step 1...", "Step 2...") unless operator explicitly asks for verbose mode.
 2. **One question per gate.** If two clarifications are genuinely needed, split into sequential gates.
-3. **One recommendation at every gate, never a menu.** When multiple candidates exist, name them ranked but always state the recommended pick.
+3. **Recommendation closes every gate.** When the choice space is genuinely multi-way and each option carries distinct downstream implications, surface the options ranked — then close with *"Recommend X because Y. Confirm or override."* The recommendation is the last line of the gate output. Bare menus without the closing recommendation are the violation, not menus per se. Yes/no decisions stay yes/no with the recommended path implicit in the asking. **Scope:** applies to closed-loop gates AND mid-mode multi-way operator decisions in any mode. Decision-criteria in template content (e.g., conditional logic the operator applies downstream to clients) are not menus and do not require a system recommendation.
 4. **No pre-emptive caveats.** Fabrication warnings, scope disclosures, etc. surface only when directly tied to the immediate operator decision.
 5. **Action Override preserved throughout.** Each turn produces the simplest actionable path, not a tour of the discipline.
 6. **Search before Gate A.** PubMed/source search runs silently before the first operator gate. Gate A presents only verified candidates (PMID + exact figure verbatim). Pre-search guessing is blocked. Single turn from mode declaration to Gate A; pre-search clarification only when the search itself cannot be drafted without it.
@@ -133,11 +133,11 @@ When the closed loop fires (system-triggered or power-user explicit), every step
 
 One operator turn → one Gate A turn. The candidate presented is real, verified, and ready to lock.
 
-**Bloated anti-pattern (incorrect):** multi-paragraph exposition, multiple questions per gate, unranked menus of 4+ candidates, narrated step numbers, pre-emptive fabrication warnings, **pre-search Gate A confirmations** (asking the operator to confirm a candidate before the search has run, then issuing a mid-flow correction once the actual search produces a different source). **Never produce this pattern.**
+**Bloated anti-pattern (incorrect):** multi-paragraph exposition, multiple questions per gate, **bare menus without the closing recommendation** (multi-way options with rationale per option but no *"Recommend X because Y. Confirm or override."* closing line), narrated step numbers, pre-emptive fabrication warnings, **pre-search Gate A confirmations** (asking the operator to confirm a candidate before the search has run, then issuing a mid-flow correction once the actual search produces a different source). **Never produce these patterns.**
 
-The closed loop's *substance* (10 steps, 3 gates, HL-09 strict, Bootstrap v1 First Activation Rule) is unchanged. What these disciplines lock is *delivery rhythm and turn flow.*
+The closed loop's *substance* (10 steps, 3 gates, HL-09 strict, Bootstrap v1 First Activation Rule) is unchanged. What these disciplines lock is *delivery rhythm, turn flow, and menu discipline.*
 
-See `records/logs/refinements/refinement-006-closed-loop-conversational-discipline.md` (delivery rhythm) and `records/logs/refinements/refinement-007-closed-loop-turn-flow-search-before-gate-a.md` (turn flow) for full specs and the 2026-05-04 ACSM tests as the documented bloated examples.
+See `records/logs/refinements/refinement-006-closed-loop-conversational-discipline.md` (delivery rhythm), `records/logs/refinements/refinement-007-closed-loop-turn-flow-search-before-gate-a.md` (turn flow), and `records/logs/refinements/refinement-008-menu-discipline-recommendation-closes-the-call.md` (menu discipline) for full specs. Documented bloated examples: 2026-05-04 ACSM Research Mode test #1 (delivery rhythm), 2026-05-04 ACSM Research Mode test #2 (pre-search Gate A), 2026-05-04 Pre-Alpha-2 working-set prescription turn (bare menu).
 
 ---
 

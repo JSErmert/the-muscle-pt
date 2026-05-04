@@ -364,6 +364,37 @@ A reliable wrong-path indicator: any time Gate A surfaces a candidate without a 
 
 ---
 
+## Amendment — 2026-05-04 (refinement-008)
+
+The Pre-Alpha-2 fresh-chat session (2026-05-04 Zach machine, ACSM 2026 protocol-build arc) surfaced a fifth architectural refinement. The closed loop fired correctly per refinements 004, 005, 006, 007 (all PASS); HL-09 + HL-10 held; the §6 Iterative Refinement doctrine landed in production with explicit reference. But several mid-mode multi-way operator decisions surfaced as **bare menus** — three ranked options with rationale per option, no explicit recommendation closing the call. The working-set prescription turn (Keep 1 max-effort / Match ACSM 2-3 sets / Hybrid) is the canonical example.
+
+Initial reading was that refinement-006 rule 3 (*"never a menu"*) was over-strict. Honest reassessment with the operator: the menus themselves were appropriate — they surfaced legitimate multi-way trade-offs that yes/no would have hidden. The actual discipline being sought is *"recommendation closes the call,"* not *"no menus."*
+
+Refinement-008 (`records/logs/refinements/refinement-008-menu-discipline-recommendation-closes-the-call.md`, 2026-05-04) sharpens rule 3:
+
+> **3. Recommendation closes every gate.** When the choice space is genuinely multi-way and each option carries distinct downstream implications, surface the options ranked — then close with *"Recommend X because Y. Confirm or override."* The recommendation is the last line of the gate output. Bare menus without the closing recommendation are the violation, not menus per se. Yes/no decisions stay yes/no with the recommended path implicit in the asking.
+>
+> **Scope:** applies to closed-loop gates AND mid-mode multi-way operator decisions in any mode. Decision-criteria in template content (e.g., conditional logic the operator applies downstream to clients) are not menus and do not require a system recommendation.
+
+CLAUDE.md updated 2026-05-04 with rule 3 sharpened, scope language added, and the bloated anti-pattern list updated ("unranked menus of 4+ candidates" replaced with "bare menus without the closing recommendation").
+
+### What this preserves (fifth time)
+
+The closed loop's substance and the rest of the conversational discipline are unchanged across all five amendments:
+- 10 steps + 3 operator gates (refinement-004)
+- System-triggered + power-user explicit activation (refinement-005)
+- Tight per-step output, one question per gate, no pre-emptive caveats, Action Override (refinement-006)
+- Search before Gate A (refinement-007)
+- HL-09 strict, HL-10 strict, Bootstrap v1 First Activation Rule
+
+What refinement-008 changes is rule 3's framing — the ban shifts from *"menus"* to *"bare menus without the closing recommendation."* The discipline is the same; the system can now surface multi-way trade-offs informatively while still taking the call.
+
+### Lesson recorded for the meta-learning loop
+
+In Pre-Alpha-2, the agent initially miscounted refinement-008 violations as "4× menu pattern across the chat" — overstating the pattern by lumping doctrine-compliant cases (mode-pick under §2 ambiguity behavior; decision-criteria in template content) with genuine violations. Operator pushed back; honest reassessment yielded 1 hard violation + 1 soft case + 2 misclassifications. **Pattern claims must be specific about what repeated, not summary counts** — added to the operator observation loop discipline.
+
+---
+
 ## Last Updated
 
 2026-05-02 — initial decision authored. Mode Activation pattern locked as the operator interface to decision-016's lane abstraction. Six mode commands defined with aliases, default behavior, switching syntax, and mode-spanning rules. HL-09 / HL-10 gates evaluated and passed. Five follow-on tasks identified.
@@ -371,3 +402,4 @@ A reliable wrong-path indicator: any time Gate A surfaces a candidate without a 
 2026-05-04 — amended a second time via refinement-005 after operator architectural review during Zach handoff prep. Research Authoring promoted from primary mode to system-triggered capability + preserved as power-user explicit invocation. Mode Activation table reduced to 5 modes + 1 deferred. CLAUDE.md updated to match. The 10-step closed loop and 3 operator gates from refinement-004 remain unchanged — what changes is the activation pattern, not the discipline.
 2026-05-04 (later) — amended a third time via refinement-006 after the same-day Research Mode test produced bloated closed-loop delivery. Five conversational rules locked: tight per-step output, one question per gate, one recommendation never a menu, no pre-emptive caveats, Action Override preserved. CLAUDE.md updated with Closed-Loop Conversational Discipline subsection including tight pattern + bloated anti-pattern. Closed-loop substance unchanged across all three amendments; what changes is delivery rhythm.
 2026-05-04 (still later) — amended a fourth time via refinement-007 after the second same-day Research Mode test surfaced Gate A before search, producing wrong-path pre-search guess and mid-flow correction. Four turn-flow rules locked: search before Gate A always, verified candidates only at Gate A, single turn from mode declaration to Gate A, pre-search clarification only when search cannot be drafted without it. CLAUDE.md updated with rule 6 added to Conversational Discipline subsection + tight pattern rewritten to show silent search → verified Gate A flow + bloated anti-pattern list extended. Closed-loop substance and conversational discipline unchanged across all four amendments; what changes is first-turn sequencing.
+2026-05-04 (latest) — amended a fifth time via refinement-008 after Pre-Alpha-2 surfaced bare-menu pattern in mid-mode multi-way decisions (working-set prescription turn as canonical FAIL). Rule 3 sharpened from "never a menu" to "recommendation closes every gate" with scope extending to mid-mode decisions in any mode. CLAUDE.md updated with rule 3 rewritten + scope language added + bloated anti-pattern list updated. Substance + delivery rhythm + turn flow unchanged across all five amendments; what changes is rule 3's framing. Lesson on pattern-claim specificity added to operator observation loop discipline.
