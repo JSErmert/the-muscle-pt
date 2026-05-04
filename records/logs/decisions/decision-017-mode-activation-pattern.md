@@ -308,8 +308,35 @@ This is the surface Zach should see in the handoff package.
 
 ---
 
+## Amendment — 2026-05-04 (refinement-006)
+
+The same-day fresh-chat test of Research Mode (power-user explicit invocation, ACSM 2026 grounding test) fired the closed loop correctly per refinement-004 + refinement-005, but produced bloated, exposition-heavy delivery — listing 4 unranked ACSM publication candidates, asking two Gate A questions instead of one, narrating step numbers, including unprompted fabrication warning. Violates CLAUDE.md Action Override + Hard Override + §6 Output Style.
+
+Refinement-006 (`records/logs/refinements/refinement-006-closed-loop-conversational-discipline.md`, 2026-05-04) locked five conversational rules for the closed loop:
+
+1. ≤2–3 sentences per step output. No procedural narration unless operator asks for verbose mode.
+2. One question per gate. If two clarifications needed, split into sequential gates.
+3. One recommendation at every gate, never a menu.
+4. No pre-emptive caveats — fabrication warnings, scope disclosures surface only when tied to immediate operator decision.
+5. Action Override preserved throughout — simplest actionable path, not a tour of the discipline.
+
+CLAUDE.md was updated 2026-05-04 with a "Closed-Loop Conversational Discipline" subsection including the tight pattern verbatim and the bloated anti-pattern explicitly blocked.
+
+### What this preserves (third time)
+
+The closed loop's substance is unchanged across all three amendments:
+- 10 steps (refinement-004)
+- 3 operator gates (refinement-004)
+- System-triggered + power-user explicit activation (refinement-005)
+- HL-09 strict, HL-10 strict, Bootstrap v1 First Activation Rule
+
+What refinement-006 locks is **delivery rhythm** — how each step is presented to the operator. The discipline is the same; the experience of using it is now tight and conversational.
+
+---
+
 ## Last Updated
 
 2026-05-02 — initial decision authored. Mode Activation pattern locked as the operator interface to decision-016's lane abstraction. Six mode commands defined with aliases, default behavior, switching syntax, and mode-spanning rules. HL-09 / HL-10 gates evaluated and passed. Five follow-on tasks identified.
 2026-05-03 — amended via refinement-004 after fresh-chat test results surfaced layer-vs-mode confusion. Clinical Mode row corrected to remove explicit Research Layer reference (layer is now framed as implicit/always-on); Research Mode row renamed to Research Authoring Mode with full 10-step closed-loop description. CLAUDE.md updated to match.
 2026-05-04 — amended a second time via refinement-005 after operator architectural review during Zach handoff prep. Research Authoring promoted from primary mode to system-triggered capability + preserved as power-user explicit invocation. Mode Activation table reduced to 5 modes + 1 deferred. CLAUDE.md updated to match. The 10-step closed loop and 3 operator gates from refinement-004 remain unchanged — what changes is the activation pattern, not the discipline.
+2026-05-04 (later) — amended a third time via refinement-006 after the same-day Research Mode test produced bloated closed-loop delivery. Five conversational rules locked: tight per-step output, one question per gate, one recommendation never a menu, no pre-emptive caveats, Action Override preserved. CLAUDE.md updated with Closed-Loop Conversational Discipline subsection including tight pattern + bloated anti-pattern. Closed-loop substance unchanged across all three amendments; what changes is delivery rhythm.

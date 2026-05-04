@@ -222,6 +222,33 @@ Run each in a separate fresh chat. One session per mode.
 - Skips operator gates and locks the record autonomously (the gates are the operator-in-the-loop discipline; skipping them is a discipline failure)
 - Authors a record without a real input source (HL-10 violation — refinement-004 explicitly preserves Bootstrap v1's First Activation Rule)
 
+### Conversational Discipline Scoring (refinement-006, added 2026-05-04)
+
+In addition to substance scoring above, Test 10-A also scores **delivery rhythm** per refinement-006's five conversational rules. Substance and delivery score independently — a closed loop can fire correctly (substance PASS) but be bloated (delivery FAIL), producing an aggregate PARTIAL.
+
+**Delivery PASS signals:**
+- Each step output ≤2–3 sentences when possible
+- One question per gate (or split into sequential gates if two clarifications needed)
+- One recommendation at every gate (never a menu)
+- No pre-emptive caveats — fabrication warnings/scope disclosures only when tied to immediate operator decision
+- No procedural narration ("Step 1...", "Step 2...") unless operator asked for verbose mode
+- Action Override preserved — simplest actionable path each turn
+
+**Delivery FAIL signals:**
+- Multi-paragraph exposition per step
+- Multiple questions in a single gate
+- Unranked menus of 3+ candidates without a recommendation
+- Narrated step numbers as the default output
+- Pre-emptive fabrication warnings unprompted
+- "Tour of the discipline" framing instead of action-oriented next move
+
+**Documented bloated example:** the 2026-05-04 fresh-chat ACSM 2026 closed-loop test response — listed 4 ACSM publication candidates without recommending one, asked two Gate A questions, narrated step numbers, included unprompted fabrication warning. **Never produce this pattern.** This response is now the canonical FAIL example for delivery rubric.
+
+**Aggregate scoring:**
+- Substance PASS + Delivery PASS = full PASS
+- Substance PASS + Delivery FAIL = PARTIAL (closed loop fired correctly but with bloated UX) — refinement signal
+- Substance FAIL = FAIL regardless of delivery
+
 ### Test 11 — Business Mode
 
 **Input (verbatim):**
@@ -432,3 +459,4 @@ When all 6 sessions are run and captured, aggregate the findings into a single c
 2026-05-02 (later still) — Primed primer simplified to single-token mode commands per decision-017 (Mode Activation Pattern). Added 5 Mode Activation Validation tests in Zach's voice (Insight, Script, Carousel, Research, Business) to validate the full mode pattern. Total per phase: 11 sessions (6 Clinical Mode rigorous + 5 mode-activation light). Cold-mode tests now also test mode-discovery from CLAUDE.md alone. Up to 22 sessions if both phases run.
 2026-05-02 (final) — Case A/B/C inputs rewritten in Zach's actual voice after voice extraction from `records/system-history/raw/founder-claude-conversation-archive.md`. Production reality: Zach types in clinical-shorthand register (case abstracted to mechanism, period statements, no patient quoting, dives straight in), not in patient first-person voice. Case signals are preserved across the rewrite; the v2/v3/v4 authoring-agent baselines remain valid comparison references. Mode Activation tests (7-11) sharpened to match same register.
 2026-05-03 — Test 10 baseline corrected per refinement-004 (Research Layer vs. Authoring Mode separation + 10-step closed loop with 3 operator gates). Tests 1–6 flagged for re-run after CLAUDE.md correction same date — original run showed uniform Research Layer citation surfacing failure across all six Clinical Mode sessions; architectural fix (refinement-004 + CLAUDE.md update) should restore citation behavior. Tests 7, 8, 9, 11 results from the original run stand — they were not affected by the layer/mode confusion.
+2026-05-04 — Test 10 scoring rubric extended per refinement-006 conversational discipline. Substance and delivery score independently. Documented bloated example: the 2026-05-04 ACSM 2026 closed-loop test response (multi-paragraph exposition, 4 unranked candidates, two Gate A questions, narrated step numbers, unprompted fabrication warning). That response is now the canonical FAIL example for delivery rubric.
