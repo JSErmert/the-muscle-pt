@@ -114,20 +114,73 @@ Filed as Pre-Alpha-1. One direct authorization promoted to CLAUDE.md (full-artif
 
 ---
 
+## Pre-Alpha-2 — Analysis (2026-05-04)
+
+**Source:** `records/research/validation/2026-05-04-pre-alpha-2-seed-usage observation.md`
+**Window:** Single fresh-chat session, Zach machine, ACSM 2026 protocol-build arc. Operator (Josh acting as Zach) ran a comprehensive training-protocol-template input through Clinical Mode → triggered system Research Authoring prompt → ran the full 10-step closed loop with 3 gates → received full protocol output. Session hit Claude.ai web 90% limit after the protocol artifact landed.
+**Repo state during the observed session:** CLAUDE.md updated through commit `4d37713` (refinements 004–007 active, §6 Iterative Refinement subsection, operator observation loop architecture established, system-history archive surgically removed for context budget). Refinement-008 was authored *after* this session based on the patterns surfaced in it; it was not in scope for the chat being observed.
+
+### Pre-session context-budget observation
+
+Before any input could be tested, the bare load of CLAUDE.md + project repo into Claude.ai web exceeded the context window by 637k tokens. Diagnosed as the 1.87MB founder-Claude conversation archive at `records/system-history/raw/founder-claude-conversation-archive.md` (~470k tokens alone). Resolved via surgical fix: tag-archived the directory at `archive/system-history-2026-05-04`, gitignored the single oversized file, restored extracted/patterns/raw-README to preserve doctrine roles. CLAUDE.md §3 updated to point at the archive tag. After the fix, bare load fit within budget.
+
+**Operationally significant observation, not a doctrine failure** — but it reveals an architectural gap: the repo had no enforced *auto-load vs. discoverable* boundary. Adding everything as if context were infinite is a real failure mode. Worth a future doctrine touch on what belongs in active project knowledge vs. what stays in archive-tag-accessible state.
+
+### Pattern observations
+
+1. **Mode-pick under ambiguity worked per CLAUDE.md §2.** Operator's input ("comprehensive training protocol template for future client work") didn't fit any single mode cleanly. System asked *"Which mode?"* — exactly the §2 default behavior. The Claude.ai UI rendered the ask as a 3-option picker (Clinical/Business/Script + Something else + Skip). Doctrine ambiguity: whether the picker rendering is a system violation of refinement-006 or a platform UI affordance over a doctrine-compliant ask. Held as ambiguous.
+2. **Clinical Mode locked correctly** with the canonical *"Clinical Mode locked. Movement Case Engine active."* phrasing per refinement-005 spec.
+3. **Refinement-005 system-triggered Research Authoring fired correctly.** When the operator's input contained the significantly-informative claim *"based on ACSM updated guidelines,"* the system surfaced a grounding decision rather than building ungrounded. Did NOT auto-fire the closed loop. Operator-authorized. Validates refinement-005's narrow-trigger discipline.
+4. **Grounding-path framing — soft refinement-008 case.** System offered a 2-path picker (Build now + disclose ungrounded vs. Research Authoring first). The 2-path framing surfaced a real time/quality trade-off that yes/no per refinement-005's literal spec would have hidden. But no closing recommendation. Soft FAIL on rule 3 as later sharpened by refinement-008.
+5. **Refinement-007 turn flow — exemplary execution.** After grounding-path selection, system announced *"Searching ACSM 2026 Position Stand on Resistance Training before Gate A."* Search ran silently. PubMed abstract fetched. Verified. Gate A presented with PMID 41843416, full citation (Currier BS et al., *Med Sci Sports Exerc.* 2026 Apr 1;58(4):851-872), and exact figures verbatim across 5 categories (strength, hypertrophy, power, non-impact variables, synthesis base of 137 systematic reviews / >30,000 participants). Single turn from grounding-path selection to verified Gate A. Pre-search guessing → blocked. Refinement-007 landed in production.
+6. **HL-09 strict throughout the closed loop.** PubMed-direct verification. Exact figures verbatim. PMID present. Source link present. No fabrication.
+7. **Gate B L3 mapping caught a real deviation.** The cross-record implication item (item 4 of the L3 mapping) flagged the discrepancy between operator's protocol spec ("1 max effort + 2 warm-ups") and ACSM's strength prescription ("2-3 working sets at ≥80% 1RM"). High-leverage system behavior — exactly what L3 mapping should do.
+8. **Gate C confidence calibration appropriate.** HIGH confidence given umbrella review evidence base + verified PMID + recognized authorities. Caveats were decision-relevant scope limits (abstract-level capture, healthy adults, cardio out-of-scope) — not pre-emptive caveating. Refinement-006 rule 4 held.
+9. **Research-010 lock + Mode handoff clean.** Research Mode → Clinical Mode transition acknowledged explicitly (*"research-010 locked. Research Mode closing. Returning to Clinical Mode."*).
+10. **Working-set prescription turn — canonical refinement-008 FAIL.** Three-option picker (Keep 1 max-effort / Match ACSM 2-3 sets / Hybrid + Something else + Skip) with rationale per option, no closing recommendation. Operator had to choose without the system's call. This is the canonical FAIL example documented in refinement-008.
+11. **§6 Iterative Refinement landed in production.** Protocol output opened with *"Reprinting full artifact per §6 Iterative Refinement."* Explicit reference to doctrine authored ~1 hour earlier. Validates the doctrine-promotion → next-chat-behavior pipeline of the meta-learning loop.
+12. **Protocol output substantively strong.** Comprehensive 60-min template with time architecture, RT prescription grounded against research-010 with verified figures inline, pre-activation block (postural targeting logic), 5 standardized cues, 2/3/4/5-day splits, cardio selection rule, specificity block logic, build notes for client modification. Volume threshold flag honest (2-set protocol below hypertrophy threshold given 2x/week frequency). 3-day PPL → Upper/Lower/Full override caught the ACSM ≥2x/week non-compliance. HL-09 disclosures surgical (out-of-scope portions explicitly flagged).
+13. **Cardio Selection Rule is template content, not a menu.** Conditional logic for downstream operator-side use ("HIIT — use on neural-light days. Moderate — use when client has aerobic deficit") is template content describing rules for client adaptation, not an operator-choice menu requiring a system recommendation. Refinement-008 scope language excludes this case correctly.
+14. **Claude.ai web 90% session-limit hit after one comprehensive output.** Long-form artifact deliverables eat session budget fast. Operationally significant for iteration arcs (Pre-Alpha-1 had 20+ refinements over 2.5 hours; Pre-Alpha-2 hit 90% after the first artifact print). Platform constraint, not doctrine issue.
+
+### Highest-leverage observations to watch for repetition
+
+- **Bare-menu pattern (refinement-008 candidate).** Pre-Alpha-2 had 1 hard violation (working-set turn) + 1 soft case (grounding-path turn) + 1 doctrine-ambiguous case (mode-pick). Refinement-008 was authored on the basis of this single observation because the operator's verbal pushback (*"the recommendation is what was missing as the last option"*) constituted a stated rule — doctrine-eligible without repetition per the single-observation rule's exception. Pre-Alpha-3 confirms whether refinement-008 took effect.
+- **Decision-criteria-vs-menu distinction.** Refinement-008 scope explicitly excludes template content with conditional logic. Watch whether the system continues providing decision-criteria appropriately without confusing it for operator-choice menus.
+- **Laterality preservation under iteration (Pre-Alpha-1 watch).** Pre-Alpha-2 didn't exercise laterality much (template-builder context, not case-iteration context). Still pending repetition check.
+- **Operator vocabulary drift (Pre-Alpha-1 watch).** Pre-Alpha-2 didn't exercise this — operator declared mode explicitly when asked rather than typing alternative vocabulary. Still pending.
+- **Mode declaration skipped (Pre-Alpha-1 watch).** Pre-Alpha-2 had operator declare Clinical Mode explicitly via picker selection. Different pattern than Pre-Alpha-1's skip-then-infer. Watch for whether explicit declaration becomes the default once operators learn the picker exists.
+- **Iterative artifact-refinement (Pre-Alpha-1 watch).** Pre-Alpha-2 didn't iterate on the protocol output (90% session-limit hit prevented iteration). Still pending repetition check across iteration arcs.
+- **Session-limit constraint on iteration headroom.** New observation. Whether this becomes a recurring constraint depends on operator workflow — if Zach's typical sessions deliver one artifact per chat, the 90% limit may not bind. If he iterates extensively, it will. Watch.
+
+### Direct operator authorizations (immediately doctrine-eligible)
+
+1. **Recommendation closes the call (refinement-008).** Verbatim from operator: *"the menus weren't too complex for a PT. They were appropriately rich. The system just didn't take the call within them."* And: *"yes the recommendation is what was missing as the last option, brilliant."* **Promoted 2026-05-04** to CLAUDE.md §2 rule 3 + refinement-008 doctrine entry + decision-017 fifth amendment.
+2. **Pattern claims must be specific (meta-learning loop discipline).** Surfaced when operator pushed back on agent's overcounting of "4× menu pattern" (honest count: 1 hard + 1 soft + 2 misclassifications). **Promoted** to refinement-008 implications section as a meta-learning loop discipline lesson — pattern claims must specify what repeated, not summary counts. Lumping doctrine-compliant cases with genuine violations contaminates pattern detection.
+
+### Disposition
+
+Filed as Pre-Alpha-2. One direct authorization promoted to doctrine via refinement-008 (CLAUDE.md + decision-017 + new refinement entry). One meta-learning lesson recorded into the loop discipline. Pattern observations and watch items held for repetition check against Pre-Alpha-3.
+
+**Net signal from Pre-Alpha-2:** the closed-loop substance + delivery rhythm + turn-flow disciplines (refinements 004–007) all landed in production cleanly. The §6 Iterative Refinement doctrine landed immediately in the next-chat. Refinement-008 emerged as a real new finding requiring rule 3 sharpening. Operator observation loop functioning as designed: observation → analysis → doctrine refinement → next-chat behavior change.
+
+---
+
 ## Future entries
 
 Each subsequent observation appends a section here:
 
-- `## Pre-Alpha-2 — Analysis (YYYY-MM-DD)`
 - `## Pre-Alpha-3 — Analysis (YYYY-MM-DD)`
+- `## Pre-Alpha-4 — Analysis (YYYY-MM-DD)`
 - ...
 
 Each entry follows the same structure: source pointer, window, repo state, pattern observations, watch items, direct operator authorizations, disposition.
 
-When patterns repeat across entries, doctrine updates surface in the next refinement cycle (same mechanism as refinement-001 through refinement-007).
+When patterns repeat across entries, doctrine updates surface in the next refinement cycle (same mechanism as refinement-001 through refinement-008).
 
 ---
 
 ## Last Updated
 
 2026-05-04 — initial doc authored. Loop architecture established. Five discipline rules locked. Pre-Alpha-1 analysis filed (12 pattern observations + 6 watch items + 3 direct operator authorizations evaluated). One authorization promoted to CLAUDE.md §6 (full-artifact reprint on iteration); two held (PRI breath cadence as wrong doctrine layer; 4–5 cues per exercise as case-context-dependent, awaiting repetition).
+2026-05-04 (later) — Pre-Alpha-2 analysis filed (14 pattern observations + 7 watch items + 2 direct operator authorizations evaluated). One authorization promoted to refinement-008 + CLAUDE.md §2 rule 3 + decision-017 fifth amendment ("recommendation closes every gate"); one meta-learning lesson promoted to loop discipline ("pattern claims must be specific about what repeated, not summary counts"). Net signal: refinements 004–007 + §6 Iterative Refinement landed in production cleanly. Refinement-008 emerged as new finding requiring rule 3 sharpening. Pre-session context-budget overflow and Claude.ai 90% session-limit observed as platform constraints separate from doctrine.
