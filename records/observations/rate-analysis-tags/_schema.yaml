@@ -1,0 +1,50 @@
+# Per-transcript artifact-unit tag file schema
+# Companion to scripts/clustering_rate_analysis.py
+# Methodology: architecture/clustering-rate-analysis-method-v1.md
+#
+# Copy this file as <transcript-stem>.yaml in the same directory and fill in.
+# Filename convention: matches the transcript filename minus the markdown extension,
+# e.g. records/observations/rate-analysis-tags/2026-05-04-pre-alpha-1-zach-usage-observation.yaml
+
+# --- Identification ------------------------------------------------------------
+
+transcript: <relative path from repo root, e.g., records/research/validation/2026-05-04-pre-alpha-1-zach-usage observation.md>
+tagged_by: <name of person who tagged this file>
+tag_date: <YYYY-MM-DD when tags were authored>
+
+# --- Context (drives confound disclosure) -------------------------------------
+
+operator: <zach | josh | other>
+doctrine_state: <e.g., through-refinement-005, through-refinement-013, mature-alpha, beta-N>
+work_type: <production | exploration | discussion | mixed>
+account_tier: <pro | max | unknown>
+
+notes: |
+  Free-form context about this transcript. What was Zach (or whoever the operator was) doing?
+  Anything important about the conditions — interruptions, cross-topic chatter, etc.
+
+# --- Artifact units ------------------------------------------------------------
+# Apply the iteration rule: an artifact iterated 20 times = 1 unit, not 20.
+# The cumulative deliverable is what counts.
+#
+# Modes (per architecture/alpha-production-validation-metrics-v1.md):
+#   clinical    — programmed protocol / case classification / reassessment plan / intervention design
+#   insight     — content piece drafted to publish-ready
+#   script      — Exercise-to-Script transformation (8-section structure complete)
+#   business    — decision documented (with rationale)
+#   research    — verified research record authored (gates A/B/C complete)
+#
+# Discarded artifacts: log them but set unit: 0 (don't count toward delivered volume)
+
+artifacts:
+  - section_marker: <a recognizable string from the transcript that anchors this artifact>
+    mode: <clinical | insight | script | business | research>
+    unit: <1 typically; 0 for discarded; rarely >1 if a single section produced multiple independent deliverables>
+    notes: <one-line description>
+
+  # Add more entries as needed. Order doesn't matter for rate computation.
+  # Example:
+  # - section_marker: "May 4 7:57 AM — programming arc"
+  #   mode: clinical
+  #   unit: 1
+  #   notes: "20+ iterations on programmed protocol; cumulative artifact = 1 unit per iteration rule"

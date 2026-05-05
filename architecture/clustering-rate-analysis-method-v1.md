@@ -246,6 +246,28 @@ Zach in Pro account hits session limits sooner than Josh in Max. If the limit bi
 - If limit binds during Alpha-1, exclude limit-truncated sections from rate analysis OR report rate-up-to-limit as a lower bound
 - Beta cycle should resolve account-tier asymmetry as a structural concern
 
+### Confound 7 — Single-shot vs iteration-arc chat (surfaced 2026-05-04 by parser validation)
+
+The methodology measures **operator engagement time**, not model production time. Inter-message gaps reflect operator typing and thinking; model latency between request and response is invisible to the timestamps because timestamps mark message-send events, not response-completion.
+
+For **iteration-arc chat** (Pre-Alpha-1 style: 23 messages over a 1.4-hour focused block, lots of back-and-forth refinement), focused-time is meaningful — it captures when the operator was actively engaged with the system.
+
+For **single-shot chat** (Pre-Alpha-2/3/4/5/6/7/8 style: one comprehensive request → one comprehensive response → maybe one decision), focused-time is **artificially low**. The system did substantial production work during model-latency periods that the timestamps don't see. Pre-Alpha-8 parsed 2 timestamps spanning 1 minute, but the actual Alpha-locking artifact was produced in that minute's worth of operator engagement. Rate computation on single-shot transcripts produces misleadingly high rates because units / focused-hours has a tiny denominator.
+
+**Mitigation:**
+- Tag each transcript section in the YAML tag file with `chat_style: iteration-arc | single-shot | mixed`
+- For single-shot sections, do NOT report rate-per-focused-hour as a comparable metric — report instead as "1 unit produced in the request-response exchange"
+- Iteration-arc transcripts are the apples-to-apples comparison set for rate measurement
+- Alpha-1 should be predominantly iteration-arc (Zach refining programs, iterating on content); confirm at end-of-window before applying full pipeline
+
+### Confound 8 — Minute-precision timestamp deduplication (parser v1 limitation)
+
+The current parser deduplicates consecutive identical timestamps to avoid noise (e.g., the same timestamp written twice in adjacent text). This drops legitimate same-minute messages when the operator sends multiple requests in the same minute.
+
+**Mitigation (v1):** acknowledge that message counts and block-message-counts are lower bounds. For artifact-rate calculations this rarely matters because units are coarser than minutes. For high-frequency exchange analysis (e.g., > 5 messages per minute sustained), the parser would need second-level timestamps from Claude.ai export metadata.
+
+**Future fix (v1.1+):** if Claude.ai web export provides second-level or millisecond timestamps, switch to those; otherwise accept minute-precision as the floor.
+
 ---
 
 ## Output format — the report structure
