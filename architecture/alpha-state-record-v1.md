@@ -21,7 +21,28 @@ hl_10_evaluation: PASS — addition justified by Alpha milestone framing establi
 
 ## Status
 
-**Alpha locked 2026-05-04.** Pre-Alpha refinement cycle target-complete after 8 fresh-chat doctrine-fidelity tests + 6 doctrine refinements (008–013) + 5 closed-loop disciplines (004–008) + audience-based identifier translation discipline (009–013).
+**ALPHA v1 LOCKED — 2026-05-04.**
+
+Pre-Alpha refinement cycle target-complete after 8 fresh-chat doctrine-fidelity tests + 6 doctrine refinements (008–013) + 5 closed-loop disciplines (004–008) + audience-based identifier translation discipline (009–013).
+
+**Lock reference**: git tag `alpha-v1-2026-05-04` at the lock commit. The repository state at that tag is the canonical Alpha v1.
+
+**Supporting prep artifacts** (all sibling to this record under `architecture/` and `records/observations/`):
+
+- `architecture/alpha-production-validation-metrics-v1.md` — three-metric framework (Volume / Quality / Confidence) defining production-validated in measurable terms; thresholds proposed pending Zach calibration
+- `architecture/zach-onboarding-v1.md` — operator handoff for Zach (modes, mode-spanning prefix, closed-loop discipline, audience-based identifier translation, what to flag back); closes operator-affordance dependency
+- `records/observations/alpha-week-1-metrics-log.md` — daily logging template for the 1-week window; pending baseline + threshold + start-date fill-in before window opens
+- `architecture/alpha-projectbrainer-brief-v1.md` — review framing for impartial supervision
+- `architecture/alpha-projectbrainer-review-v1.md` — ProjectBrainer's review findings (already integrated across commits 6c57cbe, 01ac716, b66773a, c7e1753, 03682e4, f902ebe)
+
+**Pre-window dependencies** (operator-bound, must complete before the window opens):
+
+1. Zach calibrates the three metric thresholds in `alpha-production-validation-metrics-v1.md`
+2. Pre-Alpha-9 Pro-account budget test on current doctrine state — determines if Velocity metric is interpretable
+3. Zach reads `zach-onboarding-v1.md` end-to-end (~30 minutes)
+4. Pre-window baselines logged in `alpha-week-1-metrics-log.md` (Zach self-reports prior 4-week pace)
+
+**Alpha → Beta gate**: end-of-window joint review (Zach + Josh) against the three metrics. All three pass → Beta scoping proceeds with confidence. Two pass + one fails → the failing metric defines Beta scope. One or zero pass → narrow scope or rework the failing axis.
 
 **Calibration after ProjectBrainer review (2026-05-04):** *doctrine-locked* and *validated under fresh-chat execution* are orthogonal claims, not a single bundle. The criteria below distinguish them.
 
@@ -212,9 +233,7 @@ All hard locks at `governance/hard-locks-v1.md` are active and untouched by Alph
 
 ## What's deferred (intentional gaps)
 
-1. **Carousel Mode** — `architecture/operator-observation-loop-v1.md` and CLAUDE.md §2 both record this. Status: deferred, no active doctrine. Built when documented repeated need surfaces. Plan: developed by operator (Josh) during Zach's 1-week Alpha testing window; addition + Zach feedback → Beta state record.
-
-2. **Carousel Lane (content)** — distinct from Carousel Mode but coupled. Same deferral rationale (no documented repeated need yet). CLAUDE.md §2 surfaces this.
+1. **Carousel Mode + Carousel Lane (content)** — explicitly scope-excluded from Zach's 1-week Alpha window per ProjectBrainer review §2.8. The earlier "developed by Josh during Zach's window" framing was the halfway position ProjectBrainer flagged ("operator-avoidance dressed as need-driven deferral"). Corrected scope: **Carousel is OUT of Alpha window scope.** Zach's window tests Clinical / Insight / Script / Business modes only; Carousel content production should be done manually during the window if needed. Carousel Mode + Lane authoring is Beta-cycle work, scoped after Zach's window closes and the metrics framework reads clean. This separation preserves Alpha as a doctrine-validation milestone and prevents Carousel from quietly becoming a production gap mid-window. CLAUDE.md §2 deferral message ("deferred — no active doctrine. Use Insight Mode or Script Mode for now.") remains valid as the operator-facing response if Zach declares Carousel Mode during the window.
 
 3. **§6 Iterative Refinement under iteration pressure** — substance is correct (full-artifact reprint each turn) and operator-authorized in Pre-Alpha-1 transcript. Not exercised across Pre-Alpha-2 through Pre-Alpha-8 (each ran one artifact print). Validation deferred to an Alpha-N or Beta-N iteration arc.
 
@@ -343,5 +362,7 @@ If this record itself needs structural revision before review, the operator shou
 ## Last Updated
 
 2026-05-04 — initial Alpha state record authored. Pre-Alpha-8 fresh-chat run produced clean output across all surfaces refinements 008–013 targeted; refinement-013 audience-based identifier discipline landed verbatim under fresh execution; Pre-Alpha refinement cycle target-complete. Doctrine evolution arc 008 → 009 → 010 → 011 → 012 → 013 cumulatively succeeded; each refinement scope shrank as doctrine stabilized; substantive output richness increased rather than degraded across the arc. Alpha locks for handoff to founder Zach for 1-week production testing while operator develops Carousel Mode in parallel → Beta state record at completion.
+
+2026-05-04 (Alpha v1 lock) — Formal lock declaration added to Status section. Git tag `alpha-v1-2026-05-04` created at the lock commit. Supporting prep artifacts all sibling at `architecture/`: production validation metrics framework (`alpha-production-validation-metrics-v1.md`), Zach onboarding doc (`zach-onboarding-v1.md`), metrics log template (`records/observations/alpha-week-1-metrics-log.md`). Carousel Mode + Lane explicitly scope-excluded from Zach's window per ProjectBrainer §2.8. Four pre-window dependencies recorded (Zach threshold calibration, Pre-Alpha-9 budget test, onboarding read, baseline logging). Alpha → Beta gate is the end-of-window joint review against the three metrics.
 
 2026-05-04 (later) — Calibration corrections from ProjectBrainer impartial supervision review (`architecture/alpha-projectbrainer-review-v1.md`). Status section now distinguishes "doctrine-locked" from "validated under fresh-chat execution" as orthogonal claims. Validation surface to doctrinal surface ratio recorded as ~1:20 (Clinical Mode + bypass branch + template-builder-with-periodization input is what was tested; Insight/Script/Business modes have zero fresh-chat data; live closed loop validated once on doctrine through refinement-007). "Alpha is not" list expanded to call out: 5-mode behavior-validation gap, live-closed-loop-on-current-doctrine gap, different-input-class-on-Clinical gap, operator-internalized-affordances-vs-Zach gap. Pre-Alpha test arc table corrected: inputs varied (constant input applies to Pre-Alpha-4→8 only); branch column added (Pre-Alpha-2 was live, Pre-Alpha-6/7/8 were bypass); session-limit hit on Pre-Alpha-2 surfaced. Loop epistemic claim calibrated: Pre-Alpha-7→8 is not a controlled A/B for refinement-013 alone. Ceiling-test framing corrected: Pre-Alpha-6 closed the original surface but the ceiling test was not run (test condition for ceiling-reached requires the same surface to recur, and Pre-Alpha-6 had new surfaces, not recurrences). The "ceiling framing was premature" verdict in earlier loop entries was doctrine optimism — what actually happened is the surface count was undercounted.

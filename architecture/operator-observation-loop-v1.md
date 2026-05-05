@@ -580,12 +580,59 @@ Alpha state record filed at `architecture/alpha-state-record-v1.md` as the compr
 
 ---
 
+---
+
+## Alpha v1 Lock — 2026-05-04
+
+**Pre-Alpha refinement cycle formally closed at this point.**
+
+Canonical lock artifact: `architecture/alpha-state-record-v1.md`. Git tag at lock commit: `alpha-v1-2026-05-04`.
+
+Doctrine evolution arc 008 → 009 → 010 → 011 → 012 → 013 cumulatively succeeded across the surfaces tested. Eight fresh-chat doctrine-fidelity runs (Pre-Alpha-1 through Pre-Alpha-8) + 6 refinements + 5 closed-loop disciplines produced the Alpha v1 doctrine state. ProjectBrainer impartial supervision review (`architecture/alpha-projectbrainer-review-v1.md`) integrated; calibration corrections committed across `6c57cbe`, `01ac716`, `b66773a`, `c7e1753`, `03682e4`.
+
+Supporting prep artifacts for Zach's 1-week production testing window:
+
+- Production validation metrics framework (`architecture/alpha-production-validation-metrics-v1.md`) — three metrics, three failure modes, thresholds pending Zach calibration
+- Zach onboarding doc (`architecture/zach-onboarding-v1.md`) — operator reference covering modes, mode-spanning prefix, closed-loop discipline, audience-based identifier translation, what to flag back
+- Metrics log template (`records/observations/alpha-week-1-metrics-log.md`) — daily logging structure pending baseline + threshold fill-in
+- Carousel Mode + Lane explicitly scope-excluded from Zach's window per ProjectBrainer §2.8
+
+**Pre-window dependencies** (operator-bound, must complete before the window opens):
+
+1. Zach calibrates the three metric thresholds
+2. Pre-Alpha-9 Pro-account budget test on current doctrine state
+3. Zach reads `zach-onboarding-v1.md` end-to-end
+4. Pre-window baselines logged in metrics log
+
+The window opens when all four are complete. Window length: 7 calendar days from declared start. End-of-window joint review (Zach + Josh) against the three metrics determines Alpha → Beta promotion.
+
+---
+
+## Alpha-1 — Pending (window not yet opened, 2026-05-04)
+
+**Source**: `records/observations/alpha-week-1-metrics-log.md` (template; pending fill-in)
+**Status**: Awaiting window open. Pre-window dependencies in progress.
+
+This section becomes the analytical entry for Zach's 1-week window when the window closes. Structure when filled:
+
+- Window-open conditions (date, doctrine state, calibrated thresholds, baselines)
+- Mode coverage during the window (which of the 5 modes Zach actually used)
+- Three-metric results vs. thresholds (Volume / Quality / Confidence pass/fail)
+- Pattern observations (analogous to Pre-Alpha-N entries — what surfaced, what held, what regressed)
+- Watch items (carried into Alpha-2 or Beta-N)
+- Direct operator authorizations from Zach (stated rules eligible for immediate doctrine promotion)
+- Disposition (Alpha → Beta gate read; what gets scoped into Beta vs. what gets re-scoped)
+
+When this entry fills, replace this placeholder with the analytical content.
+
+---
+
 ## Future entries
 
 Each subsequent observation appends a section here:
 
-- `## Alpha-N — Analysis (YYYY-MM-DD)` — founder testing entries (Zach's 1-week production testing window)
-- `## Beta-N — Analysis (YYYY-MM-DD)` — post-Carousel Mode entries
+- `## Alpha-2 — Analysis (YYYY-MM-DD)` — additional founder testing entries beyond the 1-week window if the window extends or re-opens
+- `## Beta-N — Analysis (YYYY-MM-DD)` — post-Carousel Mode entries (Beta cycle)
 - ...
 
 Each entry follows the same structure: source pointer, window, repo state, pattern observations, watch items, direct operator authorizations, disposition.
@@ -602,6 +649,8 @@ When patterns repeat across entries, doctrine updates surface in the next refine
 2026-05-04 (latest) — Pre-Alpha-4 analysis filed (16 pattern observations + 7 watch items + 1 direct operator authorization evaluated). Doctrine-fidelity test in Josh Max account with 12-week periodization added to the operator's input. One authorization promoted to refinement-010 + CLAUDE.md §7 OUTPUT TRANSLATION enforcement subsection (Internal-Identifier Translation Pass with pre-return scan-and-translate step + handoff line scope). Net signal: refinements 007 + 008 repetition-confirmed; tool-failure fallback discipline repetition-confirmed. Refinement-009 regressed under increased artifact complexity (1 leak in Pre-Alpha-3 → 5 leaks in Pre-Alpha-4). Refinement-010 elevates declaration-layer constraint to enforcement-layer doctrine. Three loop iterations now demonstrate doctrine evolution: Pre-Alpha-2 → refinement-008 (menus); Pre-Alpha-3 → refinement-009 (identifier-leak declaration); Pre-Alpha-4 → refinement-010 (identifier-leak enforcement). Loop is the doctrine-evolution engine — each iteration sharpens; each next iteration tests the sharpening. Meta-learning lesson recorded: declaration-layer doctrine doesn't scale with artifact complexity; fix is enforcement-layer, not stricter declaration.
 2026-05-04 (latest²) — Pre-Alpha-5 analysis filed (6 pattern observations + 3 watch items + 2 direct operator authorizations evaluated). Doctrine-fidelity test, fresh run identical to Pre-Alpha-4 input. Two authorizations promoted to refinement-011 four-element bundle: (a) Action Override placement of identifier-translation refusal rule, (b) refusal framing replacing transformation framing in §7, (c) concrete WRONG/CORRECT examples with verbatim Pre-Alpha-4/5 leaks documented in §7, (d) closed-loop exception tightened to two-tier model (specific identifiers allowed; abstract architecture terminology translates). Net signal: refinements 007 + 008 + tool-failure fallback held under fresh execution (third consistent observation). Refinement-010 FAILED under fresh execution — identical 5 leaks recurred. Doctrine has either a placement / framing problem or a model instruction-following ceiling. Refinement-011 is the strongest single doctrine attempt before accepting the ceiling. Pre-Alpha-6 result determines next move. Loop discipline lesson: doctrine has limits; the honest operator observation loop must include "what doctrine cannot fix" as a category alongside "what new doctrine prevents."
 2026-05-04 (latest³) — Pre-Alpha-6 analysis filed (6 pattern observations + 2 watch items + 1 direct operator authorization evaluated). Refinement-011 SUBSTANTIALLY LANDED — dominant Pre-Alpha-4/5 violations all gone (HL-X anywhere: 0 vs 2; engine names: 0 vs 1; research-XXX in artifact: 0 vs 1). Two uncovered surfaces remained: (a) bypass message when system found existing research-010 and skipped closed loop entirely, leaking record ID + "Pre-Alpha sessions" terminology; (b) "Switching to Clinical Mode" kept on handoff line per two-tier model judgment call. Authorization promoted to refinement-012 (final Pre-Alpha refinement) — closes both surfaces via §7 WRONG/CORRECT examples extension + Action Override scope language. Pre-Alpha milestone now scoped: Pre-Alpha-7 fresh run determines Alpha handoff readiness. Clean = Alpha lock + handoff to founder Zach for 1-week testing while operator develops Carousel Mode → Beta. Persistent leaks = model ceiling acknowledged + operator-side review as production safeguard. Either outcome unblocks Alpha. Loop discipline correction recorded: refinement-011's "ceiling-or-fix" framing was premature — Pre-Alpha-6 showed doctrine continues to land for explicitly-addressed patterns; new surfaces are normal in production-grade testing; refinement-012 is final cleanup, not capitulation.
+
+2026-05-04 (Alpha v1 lock) — Pre-Alpha refinement cycle formally closed. Alpha v1 lock recorded inline (canonical lock artifact: `architecture/alpha-state-record-v1.md`; git tag: `alpha-v1-2026-05-04`). Supporting prep artifacts filed: production validation metrics framework, Zach onboarding doc, metrics log template, Carousel scope-exclusion. Alpha-1 placeholder section opened as the slot for Zach's 1-week window analytical entry. Future entries section updated to reference Alpha-2 / Beta-N as forward markers. Four pre-window dependencies recorded: Zach threshold calibration, Pre-Alpha-9 budget test, onboarding read, baseline logging. Window opens when all four are complete; end-of-window joint review against three metrics is the Alpha → Beta gate.
 
 2026-05-04 (latest⁶) — Calibration corrections from ProjectBrainer impartial supervision review (`architecture/alpha-projectbrainer-review-v1.md`). Pre-Alpha-6 entry's "Loop discipline lesson recorded" framing rewritten — the *"ceiling framing was premature"* verdict was doctrine optimism; the actual signal is *"Pre-Alpha-6 closed the original surface; the ceiling test was not run because the test condition requires the same surface to recur after a refinement, and Pre-Alpha-6 had new surfaces, not recurrences."* "What this loop is NOT" expanded with explicit limitation: the loop catches what the operator notices in transcript review; it has no mechanism for surfacing failure modes that occur inside test conditions the operator did not exercise. Refinements 008–013 are evidence the loop CAN catch operator-noticed surfaces; they are not evidence it catches non-noticed surfaces. The Alpha lock was on a narrow validation surface (Clinical Mode + bypass branch + template-builder-with-periodization input); Insight, Script, Business modes have zero fresh-chat data and the live closed loop has been validated once on doctrine through refinement-007 (refinements 008–013 untested against the live branch). Zach's 1-week window is the first 4-mode validation, not regression verification.
 
