@@ -4,4 +4,6 @@
 # Founder-Claude conversation archive — too large for Claude.ai project context (~470k tokens)
 # Preserved at git tag: archive/system-history-2026-05-04
 # Restore via: git checkout archive/system-history-2026-05-04 -- records/system-history/raw/founder-claude-conversation-archive.md
+# Defensive: ignore the file at any restore path to prevent accidental re-commit.
 records/system-history/raw/founder-claude-conversation-archive.md
+records/raw/founder-claude-conversation-archive.md
