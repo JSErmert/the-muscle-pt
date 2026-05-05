@@ -3,7 +3,7 @@ refinement_id: refinement-009-internal-identifier-leakage-in-artifact-output
 date: 2026-05-04
 date_resolved: 2026-05-04
 type: refinement (CLAUDE.md §5 sharpening / engine-naming constraint)
-status: resolved 2026-05-04 — §5 sharpened to cover internal-identifier leakage anywhere in artifact output; closed-loop gate exception preserved
+status: PRINCIPLE SUBSUMED BY REFINEMENT-013 (2026-05-04). Refinement-013's audience-based identifier discipline reframed this declaration as a special case: client-facing artifact body translates ALL internal identifiers; "engines fire silently" is the artifact-body application of the audience model. Preserved as historical record of the surface-by-surface scaffolding that refinement-013 reframed. Original status: resolved 2026-05-04 — §5 sharpened to cover internal-identifier leakage anywhere in artifact output; closed-loop gate exception preserved.
 trigger: Pre-Alpha-3 protocol output ended with the line *"Reassess before progressing per HL-05."* HL-05 is a real documented hard lock at `governance/hard-locks-v1.md:66` ("Reassess Before Progressing — do not advance load, range, complexity, or phase without a reassessment snapshot"). The behavior the system invoked was doctrinally correct; HL-09 was not violated. But the form — naming "HL-05" in operator-facing protocol output — leaked an internal hard-lock identifier into an artifact a PT or client reads, violating the §5 principle that "engines fire silently; the user receives only the action."
 relevant_doctrine:
   - CLAUDE.md (§5 CONSTRAINTS — engine-naming bullet)
