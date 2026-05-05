@@ -23,19 +23,27 @@ hl_10_evaluation: PASS — addition justified by Alpha milestone framing establi
 
 **Alpha locked 2026-05-04.** Pre-Alpha refinement cycle target-complete after 8 fresh-chat doctrine-fidelity tests + 6 doctrine refinements (008–013) + 5 closed-loop disciplines (004–008) + audience-based identifier translation discipline (009–013).
 
+**Calibration after ProjectBrainer review (2026-05-04):** *doctrine-locked* and *validated under fresh-chat execution* are orthogonal claims, not a single bundle. The criteria below distinguish them.
+
 The system is at Alpha when:
 
-1. The 5-mode operator surface (Clinical · Insight · Script · Carousel-deferred · Business) is doctrine-locked and behaves consistently under fresh-chat execution
-2. Research Layer (M2) is operational with 10 records authored and the Research Authoring closed loop (10 steps, 3 operator gates) working under HL-09 strict
-3. The meta-learning loop (Operator Observation Loop) has demonstrated a complete cycle of observation → pattern detection → doctrine refinement → next-chat behavior change across 7 iterations
-4. Pre-Alpha-8 fresh-chat run produced a clean artifact deliverable (zero internal-identifier leaks) AND clean operator-facing surfaces (audience-based discipline landed verbatim)
+1. The 5-mode operator surface (Clinical · Insight · Script · Carousel-deferred · Business) is **doctrine-locked** — i.e., CLAUDE.md specifies the behavior of each mode. *Behavior under fresh-chat execution is validated for Clinical Mode only* (see Pre-Alpha test arc); Insight, Script, Business have zero fresh-chat test data.
+2. Research Layer (M2) is operational with 10 records authored. The Research Authoring closed loop's *bypass* branch (when a record already exists) is validated across Pre-Alpha-6/7/8. The closed loop's *live* branch (search → Gate A → Gate B → Gate C → lock) is validated **once** in Pre-Alpha-2, on doctrine state through refinement-007 — refinements 008–013 have not been tested against the live branch.
+3. The meta-learning loop (Operator Observation Loop) has demonstrated complete cycles of observation → pattern detection → doctrine refinement → next-chat behavior change across 7 iterations on the surfaces it observed. The loop has no mechanism for unobserved failure modes.
+4. Pre-Alpha-8 fresh-chat run produced a clean artifact deliverable (zero internal-identifier leaks) AND clean operator-facing surfaces (audience-based discipline landed verbatim). Validation surface for that test was: Clinical Mode + bypass branch + template-builder-with-periodization input + mode-spanning pre-declaration.
+
+**Validation surface to doctrinal surface ratio: ~1:20.** The doctrine specifies five modes with multiple input classes per mode (Clinical alone covers case classification, root cause, intervention logic, reassessment per CLAUDE.md §2); validation tested one mode on one input class. The honest framing is "Alpha doctrine is locked; Alpha validation is partial." Zach's 1-week window is the *first 4-mode validation*, not a regression check.
 
 Alpha is **not**:
 
 - Production-validated by founder. Zach's 1-week testing window comes next.
 - Carousel Mode complete. Deferred — built during the 1-week testing window → Beta.
+- Behavior-validated across the 5-mode surface. Only Clinical Mode + Research Authoring bypass branch have fresh-chat test data. Insight Mode, Script Mode, Business Mode are doctrine-locked but behavior-untested.
+- Live closed loop validated under refinements 008–013. Pre-Alpha-2 (doctrine through refinement-007) is the sole live-branch test. Refinements 008–013 have validated the bypass branch only.
 - Iteration depth validated. §6 Iterative Refinement (full-artifact reprint discipline) was promoted from Pre-Alpha-1 but has not been exercised under iteration pressure across Pre-Alpha-2 through Pre-Alpha-8 (each ran a single artifact print).
-- Budget-realism validated for Zach's account tier. Pre-Alpha runs all happened in Josh's Max account; Pro-tier session-limit behavior under sustained use is unmeasured beyond Pre-Alpha-2's 90% session-limit observation.
+- Budget-realism validated for Zach's account tier. Pre-Alpha runs all happened in Josh's Max account; Pro-tier session-limit behavior under sustained use is unmeasured beyond Pre-Alpha-2's 90% session-limit observation on doctrine ~360 lines (current is ~485 lines, so the limit may bind sooner).
+- Different-input-class on Clinical Mode validated. All Pre-Alpha-2→8 ran the template-builder input. Case classification, intervention design, programming-for-individual-clients are core Clinical Mode surfaces with no fresh-chat data.
+- Operator-internalized affordances validated against a non-builder operator. The mode-spanning prefix pattern (*"Research mode, then Clinical mode:"*) was internalized by the operator (Josh) across Pre-Alpha-3→8; Zach has not seen the pattern. Mode-pick picker rendering (4 consistent observations) and bypass-message presentation are operator-behavior-validated, founder-untested.
 
 ## What this document is
 
@@ -138,20 +146,26 @@ The doctrine reached Alpha through 13 refinements + 17 decisions. Refinements 00
 
 ## Pre-Alpha test arc (8 fresh-chat doctrine-fidelity runs)
 
-Each Pre-Alpha test is a fresh-chat run with the same template-builder + 12-week periodization input (Pre-Alpha-2 onward) under the current repo state. Tests run in Josh's Max account (doctrine-fidelity test type) until budget-realism testing begins in Zach's Pro account during Alpha.
+Each Pre-Alpha test is a fresh-chat run under the current repo state. Tests run in Josh's Max account (doctrine-fidelity test type) until budget-realism testing begins in Zach's Pro account during Alpha. **Inputs varied across the arc — the "same input" framing applies to Pre-Alpha-4→8 (template-builder + 12-week periodization + mode-spanning pre-declaration), not the entire arc.** Pre-Alpha-2 had a different baseline (no periodization, no mode pre-declaration, ran the live closed-loop branch); Pre-Alpha-3 added mode-spanning pre-declaration; Pre-Alpha-4 added periodization. Pre-Alpha-4→8 is the constant-input segment.
 
-| Test | Repo state | Surface tested | Result | Resulting doctrine |
-|---|---|---|---|---|
-| Pre-Alpha-1 | Through refinement-005 | Zach 26yo case + iterative programming arc (May 3–4) | 12 patterns, 6 watch items, 3 direct authorizations | Full-artifact reprint promoted to §6 Iterative Refinement |
-| Pre-Alpha-2 | Through refinement-007 + §6 | Template-builder + ACSM grounding (closed loop full run) | Working-set bare-menu pattern | Refinement-008 (recommendation closes the call) |
-| Pre-Alpha-3 | Through refinement-008 | Same template-builder, mode-spanning declaration | HL-05 leak in artifact closing line | Refinement-009 (declaration layer) |
-| Pre-Alpha-4 | Through refinement-009 | Same + 12-week periodization added | 5 internal-identifier leaks (regression under complexity) | Refinement-010 (§7 enforcement) |
-| Pre-Alpha-5 | Through refinement-010 | Same input | Identical 5-leak recurrence — doctrine not landing | Refinement-011 (four-element bundle) |
-| Pre-Alpha-6 | Through refinement-011 | Same input | Substantial landing — 0 HL-X / 0 engine names / 0 research-XXX in artifact body. 2 uncovered surfaces (bypass message + handoff mode-naming) | Refinement-012 (final cleanup) |
-| Pre-Alpha-7 | Through refinement-012 | Same input | Clean artifact body. Operator correction surfaced refinement-012 over-translation (record ID is storage pointer) + new HL-X adverbial-justification surface | Refinement-013 (audience-based reframe) |
-| Pre-Alpha-8 | Through refinement-013 | Same input | **Clean across all surfaces.** Bypass message + HL-X adverbial framing match refinement-013 CORRECT examples verbatim. Substantive richness increased relative to Pre-Alpha-7. | **Alpha locks** |
+| Test | Repo state | Input | Branch | Result | Resulting doctrine |
+|---|---|---|---|---|---|
+| Pre-Alpha-1 | Through refinement-005 | Zach 26yo case + iterative programming arc (May 3–4) | Clinical Mode iteration | 12 patterns, 6 watch items, 3 direct authorizations | Full-artifact reprint promoted to §6 Iterative Refinement |
+| Pre-Alpha-2 | Through refinement-007 + §6 | Template-builder + ACSM grounding, no mode pre-declaration | **Live** closed loop (search → Gate A → B → C → lock) | Working-set bare-menu pattern; 90% session-limit hit on Pro account | Refinement-008 (recommendation closes the call) |
+| Pre-Alpha-3 | Through refinement-008 | Template-builder + mode-spanning pre-declaration (NEW) | Live closed loop | HL-05 leak in artifact closing line | Refinement-009 (declaration layer) |
+| Pre-Alpha-4 | Through refinement-009 | Template-builder + mode-spanning + 12-week periodization (NEW) | Live closed loop | 5 internal-identifier leaks (regression under complexity) | Refinement-010 (§7 enforcement) |
+| Pre-Alpha-5 | Through refinement-010 | Same as Pre-Alpha-4 | Live closed loop | Identical 5-leak recurrence — doctrine not landing | Refinement-011 (four-element bundle) |
+| Pre-Alpha-6 | Through refinement-011 | Same as Pre-Alpha-4 | **Bypass** branch (research-010 already locked from prior session) | Substantial landing — 0 HL-X / 0 engine names / 0 research-XXX in artifact body. 2 uncovered surfaces (bypass message + handoff mode-naming) | Refinement-012 |
+| Pre-Alpha-7 | Through refinement-012 | Same as Pre-Alpha-4 | Bypass branch | Clean artifact body. Operator correction surfaced refinement-012 over-translation (record ID is storage pointer) + new HL-X adverbial-justification surface | Refinement-013 (audience-based reframe) |
+| Pre-Alpha-8 | Through refinement-013 | Same as Pre-Alpha-4 | Bypass branch | **Clean across all surfaces.** Bypass message + HL-X adverbial framing match refinement-013 CORRECT examples verbatim. Substantive richness increased relative to Pre-Alpha-7. | **Alpha locks** |
 
-The arc demonstrates the operator observation loop functioning: each Pre-Alpha test surfaced a finding; each finding promoted to doctrine; the next test validated the promotion. Refinement scope shrank across iterations as doctrine stabilized.
+The arc demonstrates the operator observation loop functioning on the surfaces it observed: each test surfaced a finding; each finding promoted to doctrine; the subsequent test (when conditions matched) validated the promotion. Refinement scope shrank across iterations on the artifact-translation surface as doctrine stabilized.
+
+**Important calibration on the loop's epistemic claim** (per ProjectBrainer review §2.5): the loop's "validate that the update took effect" mechanism requires the next test to surface the same condition the previous test surfaced. Pre-Alpha-3→4→5 did this on the artifact-translation surface (same complexity, same leak class). Pre-Alpha-7→8 did NOT do this on the bypass-message surface alone — the validation surface for Pre-Alpha-8 is *refinement-013 + mode-pre-declaration + periodization complexity + bypass branch*, not *refinement-013 in isolation*. Pre-Alpha-8 is a clean datum, but it is not a controlled A/B test for refinement-013.
+
+**The live closed loop has been validated once.** Pre-Alpha-2 was the only fresh-chat test that exercised the live branch (search → Gate A → Gate B → Gate C → lock); doctrine state at that test was through refinement-007. Refinements 008–013 have been validated against the bypass branch + the artifact body, NOT against the live closed loop's gate sequence. Recommend a Pre-Alpha-9 or Alpha-1 fresh-chat test that triggers the live closed loop on a topic outside research-001→010 before Zach's first novel-grounding request becomes the live test.
+
+**The "ceiling test" was not run.** Refinement-011 framed Pre-Alpha-6 as the test that would determine "ceiling-or-fix." Pre-Alpha-6 closed the original surface (HL-X / engine names / research-XXX in artifact body) but surfaced two new ones (bypass message + handoff mode-naming). The honest framing is *"Pre-Alpha-6 closed the original surface; the ceiling test was not run because the test condition for ceiling-reached requires the same surface to recur after a refinement, and Pre-Alpha-6 didn't have that condition."* Refinements 012/013 were warranted on principle-level resolutions of new surfaces; the ceiling framing's "premature" verdict in earlier loop entries is doctrine optimism — what actually happened is the surface count was undercounted, and the ceiling test was on a different surface than the one that surfaced.
 
 ---
 
@@ -329,3 +343,5 @@ If this record itself needs structural revision before review, the operator shou
 ## Last Updated
 
 2026-05-04 — initial Alpha state record authored. Pre-Alpha-8 fresh-chat run produced clean output across all surfaces refinements 008–013 targeted; refinement-013 audience-based identifier discipline landed verbatim under fresh execution; Pre-Alpha refinement cycle target-complete. Doctrine evolution arc 008 → 009 → 010 → 011 → 012 → 013 cumulatively succeeded; each refinement scope shrank as doctrine stabilized; substantive output richness increased rather than degraded across the arc. Alpha locks for handoff to founder Zach for 1-week production testing while operator develops Carousel Mode in parallel → Beta state record at completion.
+
+2026-05-04 (later) — Calibration corrections from ProjectBrainer impartial supervision review (`architecture/alpha-projectbrainer-review-v1.md`). Status section now distinguishes "doctrine-locked" from "validated under fresh-chat execution" as orthogonal claims. Validation surface to doctrinal surface ratio recorded as ~1:20 (Clinical Mode + bypass branch + template-builder-with-periodization input is what was tested; Insight/Script/Business modes have zero fresh-chat data; live closed loop validated once on doctrine through refinement-007). "Alpha is not" list expanded to call out: 5-mode behavior-validation gap, live-closed-loop-on-current-doctrine gap, different-input-class-on-Clinical gap, operator-internalized-affordances-vs-Zach gap. Pre-Alpha test arc table corrected: inputs varied (constant input applies to Pre-Alpha-4→8 only); branch column added (Pre-Alpha-2 was live, Pre-Alpha-6/7/8 were bypass); session-limit hit on Pre-Alpha-2 surfaced. Loop epistemic claim calibrated: Pre-Alpha-7→8 is not a controlled A/B for refinement-013 alone. Ceiling-test framing corrected: Pre-Alpha-6 closed the original surface but the ceiling test was not run (test condition for ceiling-reached requires the same surface to recur, and Pre-Alpha-6 had new surfaces, not recurrences). The "ceiling framing was premature" verdict in earlier loop entries was doctrine optimism — what actually happened is the surface count was undercounted.
