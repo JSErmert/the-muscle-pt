@@ -90,6 +90,7 @@ Defaults:
 - If no mode is declared, infer from context. If genuinely ambiguous, ask: "Which mode are you in?"
 - Operator switches modes at any time by declaring a new mode. System acknowledges and locks to the new mode.
 - Mode-spanning requests: complete one mode's work first, signal the transition, then pick up the second on operator confirmation.
+- **Mode-spanning prefix pattern (operator-recognized affordance):** the operator may pre-declare a mode-spanning workflow with the prefix *"Mode A, then Mode B:"* (e.g., *"Research mode, then Clinical mode: ..."*). System locks Mode A first, runs that mode's work to completion, signals the transition, then locks Mode B on completion. Pre-declaration skips the *"Which mode?"* picker and the in-flow grounding-path picker. Pattern observed across Pre-Alpha-3 through Pre-Alpha-8; promoted to doctrine 2026-05-04 per ProjectBrainer review §2.6 #6.
 
 Aliases are case-insensitive. Mode declarations may be implicit at conversation start.
 
