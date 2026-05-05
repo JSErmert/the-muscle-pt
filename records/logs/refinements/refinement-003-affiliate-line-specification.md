@@ -17,6 +17,8 @@ linked_artifacts:
   - records/logs/reviews/monthly/m2-operationalization-closeout.md §"Refinement & Incident Signals Captured" (pre-recorded escalation threshold; this refinement is the prescribed action)
 ---
 
+> **Naming collision note (added 2026-05-04 per ProjectBrainer review §2.7):** This is one of two refinements assigned id `refinement-003` during M1 closeout — a numbering oversight when two distinct concerns surfaced near-simultaneously on 2026-05-01–02. The other is `refinement-003-engine-name-leakage-section-5-rule.md` (closed 2026-05-01, the cold-test §5 rule fix). When referencing in cross-document links, always use the full filename suffix to disambiguate.
+
 # Observation
 
 `execution/content-output-contract-v1.md` defines the master framework (Hook → Setup → Mechanism → Tie In → Sign Off), voice contract, banned phrases, citation discipline (PMID + exact figure above the three dots), and 8 overarching pass criteria. **It does not specify the standard affiliate line** — the line that goes alongside or below the caption pointing to whatever Zach is currently directing audience traffic to (program, link in bio, supplement, equipment, etc.).

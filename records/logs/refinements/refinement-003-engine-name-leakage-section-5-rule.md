@@ -11,6 +11,8 @@ escalation_path: ET-03 (Repeated Friction Trigger) — pattern repeated across 5
 linked_incident: incident-001-cold-test-translation-failures
 ---
 
+> **Naming collision note (added 2026-05-04 per ProjectBrainer review §2.7):** This is one of two refinements assigned id `refinement-003` during M1 closeout — a numbering oversight when two distinct concerns surfaced near-simultaneously on 2026-05-01–02. The other is `refinement-003-affiliate-line-specification.md` (resolved 2026-05-02 via decision-016 + shared assets v1). When referencing in cross-document links, always use the full filename suffix to disambiguate.
+
 # Observation
 
 The cold test surfaced a translation failure pattern: the model opens user-facing output by naming the engine, doctrine layer, or system component being applied (e.g., *"Use Movement Case Engine"*, *"Use Content Case Flywheel"*, *"Use Governing Logic + Decision Preferences + Hard Locks"*).

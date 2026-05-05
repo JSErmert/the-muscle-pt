@@ -316,6 +316,8 @@ When the operator iterates on a structured artifact (protocol, script, plan, pro
 
 Operator-authorized rule from Pre-Alpha-1 (2026-05-04 Zach session): *"give me updated exercise everytime i tell you to update."* See `architecture/operator-observation-loop-v1.md` for the source authorization.
 
+**Validation status (2026-05-04, per ProjectBrainer review §2.7):** operator-authorized but unvalidated under iteration pressure. Pre-Alpha-2 through Pre-Alpha-8 each ran a single artifact print, so the rule has not been exercised across multiple sequential refinements on the same artifact. The first iteration arc (5+ refinements on one artifact) in Alpha-N or Beta-N is the validation point. Watch for whether the system reverts to delta-summary under iteration pressure.
+
 ---
 
 ## 7. OUTPUT TRANSLATION
